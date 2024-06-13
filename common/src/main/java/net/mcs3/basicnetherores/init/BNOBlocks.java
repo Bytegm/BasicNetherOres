@@ -16,10 +16,10 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
+import static net.mcs3.basicnetherores.util.helper.ResourceLocationHelper.prefix;
+
 import java.util.function.BiConsumer;
 import java.util.function.ToIntFunction;
-
-import static net.mcs3.basicnetherores.util.helper.ResourceLocationHelper.prefix;
 
 public class BNOBlocks {
 
@@ -27,6 +27,7 @@ public class BNOBlocks {
     public static final BlockBehaviour.Properties REDSTONE_ORE_PROPERTIES = BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().randomTicks().lightLevel(litBlockEmission(9)).strength(3.0F, 3.0F).sound(SoundType.NETHER_GOLD_ORE);
     public static final BlockBehaviour.Properties METAL_BLOCKS = BlockBehaviour.Properties.of().mapColor(MapColor.METAL).instrument(NoteBlockInstrument.XYLOPHONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL);
     public static final BlockBehaviour.Properties RAW_ORE_BLOCKS = BlockBehaviour.Properties.of().mapColor(MapColor.RAW_IRON).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(5.0F, 6.0F);
+
 
     public static final Block NETHER_EMERALD_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(3, 7));
     public static final Block NETHER_DIAMOND_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(3,7));
@@ -98,7 +99,7 @@ public class BNOBlocks {
         r.accept(RAW_URANIUM_BLOCK, prefix("raw_uranium_block"));
         r.accept(RAW_ZINC_BLOCK, prefix("raw_zinc_block"));
 
-        Constants.LOGGER.info("BNO - Block Registered");
+        Constants.LOG.info("BNO - Block Registered");
     }
 
     public static void registerItemBlocks(BiConsumer<Item, ResourceLocation> r) {
@@ -138,7 +139,7 @@ public class BNOBlocks {
         r.accept(new BlockItem(RAW_URANIUM_BLOCK, properties), BuiltInRegistries.BLOCK.getKey(RAW_URANIUM_BLOCK));
         r.accept(new BlockItem(RAW_ZINC_BLOCK, properties), BuiltInRegistries.BLOCK.getKey(RAW_ZINC_BLOCK));
 
-        Constants.LOGGER.info("BNO - Block Items Registered");
+        Constants.LOG.info("BNO - Block Items Registered");
     }
 
     private static ToIntFunction<BlockState> litBlockEmission(int $$0) {

@@ -5,7 +5,6 @@ import net.mcs3.basicnetherores.init.BNOItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -74,7 +73,7 @@ public class ForgeItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> RAW_ZINC = tagForge("raw_materials/zinc");
 
     public ForgeItemTagGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,
-                                 CompletableFuture<TagsProvider.TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
+                                 CompletableFuture<TagLookup<Block>> blockTagProvider, ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, blockTagProvider, Constants.MOD_ID, existingFileHelper);
     }
 

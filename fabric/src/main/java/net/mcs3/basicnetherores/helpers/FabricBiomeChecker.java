@@ -1,11 +1,6 @@
 package net.mcs3.basicnetherores.helpers;
 
-import com.mojang.serialization.DataResult;
-import net.mcs3.basicnetherores.Constants;
-import net.minecraft.resources.ResourceLocation;
-
 import java.io.File;
-import java.nio.file.Path;
 
 public class FabricBiomeChecker {
 

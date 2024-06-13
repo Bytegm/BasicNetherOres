@@ -2,8 +2,8 @@ package net.mcs3.basicnetherores.platform;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.mcs3.basicnetherores.platform.services.IPlatformHelper;
 import net.fabricmc.loader.api.FabricLoader;
+import net.mcs3.basicnetherores.platform.services.IPlatformHelper;
 import net.minecraft.world.item.CreativeModeTab;
 
 public class FabricPlatformHelper implements IPlatformHelper {

@@ -21,7 +21,7 @@ public class FabricBasicNetherOresConfig {
         try {
             Files.createDirectory(Paths.get("config"));
         } catch (FileAlreadyExistsException ignored) {} catch (IOException e) {
-            Constants.LOGGER.warn("Failed to make config dir", e);
+            Constants.LOG.warn("Failed to make config dir", e);
         }
 
         JanksonValueSerializer serializer = new JanksonValueSerializer(false);
@@ -36,7 +36,7 @@ public class FabricBasicNetherOresConfig {
         try (InputStream s = new BufferedInputStream(Files.newInputStream(p, StandardOpenOption.READ, StandardOpenOption.CREATE))) {
             FiberSerialization.deserialize(config, s, serializer);
         } catch (IOException | ValueDeserializationException e) {
-            Constants.LOGGER.error("Error loading config from {}", p, e);
+            Constants.LOG.error("Error loading config from {}", p, e);
         }
     }
 
@@ -44,7 +44,7 @@ public class FabricBasicNetherOresConfig {
         try (OutputStream s = new BufferedOutputStream(Files.newOutputStream(path, StandardOpenOption.WRITE, StandardOpenOption.CREATE_NEW))) {
             FiberSerialization.serialize(config, s, serializer);
         } catch (FileAlreadyExistsException ignored) {} catch (IOException e) {
-            Constants.LOGGER.error("Error writing default config", e);
+            Constants.LOG.error("Error writing default config", e);
         }
     }
 

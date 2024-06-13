@@ -2,6 +2,10 @@ package net.mcs3.basicnetherores.data;
 
 
 import net.mcs3.basicnetherores.Constants;
+import net.mcs3.basicnetherores.data.loottables.ForgeLootTableGenerator;
+import net.mcs3.basicnetherores.data.models.ForgeItemModelGenerator;
+import net.mcs3.basicnetherores.data.models.ForgeBlockStateGenerator;
+import net.mcs3.basicnetherores.data.recipes.ForgeCraftingRecipes;
 import net.mcs3.basicnetherores.data.tags.ForgeBlockTagGenerator;
 import net.mcs3.basicnetherores.data.tags.ForgeItemTagGenerator;
 import net.mcs3.basicnetherores.data.worldgen.WorldDataGenerator;
@@ -25,11 +29,18 @@ public class ForgeDataGenerators
         CompletableFuture<HolderLookup.Provider> lookupProvider = evt.getLookupProvider();
         if (evt.includeServer()) {
             BlockTagsProvider blocktags = new ForgeBlockTagGenerator(packOutput, lookupProvider, evt.getExistingFileHelper());
-
             generator.addProvider(true, blocktags);
+
+            generator.addProvider(true, new ForgeLootTableGenerator(packOutput));
+            generator.addProvider(true, new ForgeCraftingRecipes(packOutput));
             generator.addProvider(true, new ForgeItemTagGenerator(packOutput, lookupProvider, blocktags.contentsGetter(), evt.getExistingFileHelper()));
 
             generator.addProvider(true, new WorldDataGenerator(packOutput, lookupProvider));
+        }
+
+        if(evt.includeClient()) {
+            evt.getGenerator().addProvider(true, new ForgeBlockStateGenerator(evt.getGenerator().getPackOutput(), evt.getExistingFileHelper()));
+            evt.getGenerator().addProvider(true, new ForgeItemModelGenerator(evt.getGenerator().getPackOutput(), evt.getExistingFileHelper()));
         }
     }
 }

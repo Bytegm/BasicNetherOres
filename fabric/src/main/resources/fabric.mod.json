@@ -1,9 +1,9 @@
 {
     "schemaVersion": 1,
-    "id": "bno",
+    "id": "${mod_id}",
     "version": "${version}",
     "name": "${mod_name}",
-    "description": "Basic Nether Ores adds Overworld and Modded Ores to the Nether.",
+    "description": "${mod_description}",
     "authors": [
         "${mod_author}"
     ],
@@ -12,7 +12,7 @@
         "sources": "https://github.com/cScotPlay/BasicNetherOres",
         "issues": "https://github.com/cScotPlay/BasicNetherOres/issues"
     },
-    "license": "MIT License",
+    "license": "${mod_license}",
     "icon": "bno-logo.png",
     "environment": "*",
     "entrypoints": {
@@ -27,16 +27,11 @@
         ]
     },
     "mixins": [
-        "bno.fabric.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14",
-        "fabric": "*",
-        "minecraft": "1.20.1",
+        "fabric-api": "*",
+        "fabricloader": ">=${fabric_loader_version}",
+        "minecraft": "${minecraft_version}",
         "java": ">=17"
-    },
-    "suggests": {
-        "another-mod": "*"
     }
 }
-  

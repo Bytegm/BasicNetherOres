@@ -3,17 +3,15 @@ package net.mcs3.basicnetherores.data.tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
-
 
 import java.util.concurrent.CompletableFuture;
 
 public class VanillaItemTagGenerator extends ItemTagsProvider {
 
-    public VanillaItemTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagProvider) {
+    public VanillaItemTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTagProvider) {
         super(packOutput, lookupProvider, blockTagProvider);
     }
 

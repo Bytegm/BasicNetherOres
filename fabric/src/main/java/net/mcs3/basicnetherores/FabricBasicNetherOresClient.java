@@ -6,12 +6,10 @@ import net.mcs3.basicnetherores.client.ShippedResourcePack;
 import net.mcs3.basicnetherores.client.renderer.BlockRenderLayers;
 
 public class FabricBasicNetherOresClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
-
         ShippedResourcePack.extractFiles("Basic Nether Ores 32x");
         BlockRenderLayers.registerRenderLayers(BlockRenderLayerMap.INSTANCE::putBlock);
     }
-
-
 }

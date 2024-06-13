@@ -16,13 +16,15 @@ out
 
 # gradle
 build
+buildSrc
 .gradle
 
 # other
 eclipse
-run
+runs/
 
 /common/src/generated/resources/.cache/
 /common/src/generated/resources/
 /forge/src/generated/
-/fabric/src/main/generated/
+/fabric/src/generated/
+/neoforge/src/generated/

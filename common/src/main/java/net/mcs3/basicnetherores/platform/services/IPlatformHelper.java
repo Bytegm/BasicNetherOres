@@ -7,11 +7,15 @@ import net.minecraft.world.item.Item;
 public interface IPlatformHelper {
 
     default boolean isFabric() {
-        return !isForge();
+        return !isForge() || isNeoForge();
     }
 
     default boolean isForge() {
-        return !isFabric();
+        return !isFabric() || !isNeoForge();
+    }
+
+    default boolean isNeoForge() {
+        return !isForge() || !isFabric();
     }
 
     /**
@@ -50,5 +54,5 @@ public interface IPlatformHelper {
     CreativeModeTab.Builder creativeTab();
 
 
-    IPlatformHelper INSTANCE = Services.loadService(IPlatformHelper.class, null);
+    IPlatformHelper INSTANCE = Services.load(IPlatformHelper.class);
 }

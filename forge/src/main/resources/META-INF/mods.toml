@@ -1,27 +1,29 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
-license = "MIT License"
-issueTrackerURL="https://github.com/cScotPlay/BasicNetherOres/issues"
+loaderVersion = "${forge_version_range}"
+license = "${mod_license}"
+issueTrackerURL="https://github.com/cScotPlay/BasicNetherOres/issues" #optional
+
+
 [[mods]]
-modId = "bno"
-version = "${file.jarVersion}"
-displayName = "Basic Nether Ores"
-displayURL="https://minecraft.curseforge.com/projects/basic-nether-ores"
-logoFile = "bno-logo.png"
-credits = "Thanks to An Sar for the help in working through this.  Thanks to McJty for putting together the tutorial videos that helped me to accomplish this."
-authors = "cScotPlay"
-description = '''
-Basic Nether Ores adds Overworld and Modded Ores to the Nether.
-''' #mandatory (Supports multiline text)
-[[dependencies.bno]] #optional
-modId = "forge" #mandatory
-mandatory = true #mandatory
-versionRange = "[47,)" #mandatory
-ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
-side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
-[[dependencies.bno]]
-modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,1.21)"
-ordering = "NONE"
-side = "BOTH"
+    modId = "${mod_id}"
+    version = "${version}"
+    displayName = "${mod_name}"
+    credits = "${mod_credits}" #optional
+    authors = "${mod_author}"
+    description = '''${mod_description}'''
+    logoFile = "bno-logo.png"
+    displayURL="https://minecraft.curseforge.com/projects/basic-nether-ores" #optional (displayed in the mod UI)
+
+[[dependencies.${mod_id}]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "${forge_version_range}"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.${mod_id}]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "${minecraft_version_range}"
+    ordering = "NONE"
+    side = "BOTH"

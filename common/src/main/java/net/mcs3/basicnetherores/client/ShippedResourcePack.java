@@ -4,7 +4,6 @@ import net.mcs3.basicnetherores.Constants;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileSystemAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -37,7 +36,7 @@ public class ShippedResourcePack {
         try {
             Files.createDirectories(Paths.get(name));
         } catch (IOException e){
-            Constants.LOGGER.warn("Could not create Folder: {}", name);
+            Constants.LOG.warn("Could not create Folder: {}", name);
         }
     }
 }

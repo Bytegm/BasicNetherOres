@@ -1,11 +1,10 @@
 plugins {
-    id 'java'
-    id 'idea'
-    id 'maven-publish'
-    id 'fabric-loom'
+    id 'multiloader-loader'
+    id 'fabric-loom' version '1.6-SNAPSHOT'
 }
+
 base {
-    archivesName = "${mod_name}-fabric-${minecraft_version}"
+    archivesName = "${mod_id}-fabric-${minecraft_version}"
 }
 repositories{
     maven {
@@ -13,8 +12,14 @@ repositories{
         url 'https://maven.terraformersmc.com/releases/' }
 
     maven {
-        name = "JEI"
-        url "https://dvs1.progwml6.com/files/maven/"
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
 
     maven {
@@ -25,10 +30,8 @@ dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
-
-    compileOnly project(":common")
 
     modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
     modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
@@ -44,80 +47,25 @@ dependencies {
 }
 
 loom {
-    if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
-        accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
-    }
-    mixin {
-        defaultRefmapName.set("${mod_id}.refmap.json")
-    }
+    var aw = project(":common").file("src/main/resources/${mod_id}.accesswidener")
+    if (aw.exists()) accessWidenerPath.set(aw)
+
     runs {
         client {
             client()
             setConfigName("Fabric Client")
             ideConfigGenerated(true)
-            runDir("run")
-        }
-        server {
-            server()
-            setConfigName("Fabric Server")
-            ideConfigGenerated(true)
-            runDir("run")
+            programArgs('--username', 'Dev')
+            runDir("runs/client")
         }
         datagen {
-            client()
-
-            setConfigName("Fabric Data Generation")
-            ideConfigGenerated(true)
-            runDir = "build/datagen"
-
-            vmArg("-Dfabric-api.datagen")
-            vmArg("-Dfabric-api.datagen.output-dir=${file("../Fabric/src/main/generated")}")
-        }
-        datagen {
-            client()
-
-            setConfigName("Common Data Generation")
-            ideConfigGenerated(true)
-            runDir = "build/datagen"
-
-            vmArg("-Dbno.common_datagen=1")
+            inherit client
+            name "Fabric Datagen"
             vmArg "-Dfabric-api.datagen"
-            vmArg "-Dfabric-api.datagen.output-dir=${file("../Common/src/generated/resources")}"
-        }
-    }
-}
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=${mod_id}"
 
-tasks.withType(JavaCompile).configureEach {
-    source(project(":common").sourceSets.main.allSource)
-}
-tasks.withType(Javadoc).configureEach {
-    source(project(":common").sourceSets.main.allJava)
-}
-tasks.named("sourcesJar", Jar) {
-    from(project(":common").sourceSets.main.allSource)
-}
-
-sourceSets.main.resources {
-    srcDirs += 'src/main/generated'
-    srcDirs += '../common/src/generated/resources'
-}
-
-processResources {
-    from project(":common").sourceSets.main.resources
-
-    exclude '.cache'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifactId base.archivesName.get()
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url "file://" + System.getenv("local_maven")
+            runDir "build/datagen"
         }
     }
 }

@@ -5,7 +5,6 @@ import net.mcs3.basicnetherores.util.helper.GuardOreBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +26,7 @@ public class ModOreBlock extends DropExperienceBlock {
     private final IntProvider xpRange;
 
     public ModOreBlock(Properties properties, IntProvider experienceDropped) {
-        super(properties.noOcclusion());
+        super(experienceDropped, properties.noOcclusion());
         this.xpRange = experienceDropped;
     }
 
@@ -80,9 +79,6 @@ public class ModOreBlock extends DropExperienceBlock {
     public void playerDestroy(Level level, Player player, BlockPos blockPos, BlockState blockState, @Nullable BlockEntity blockEntity, ItemStack itemStack) {
         level.levelEvent(player, 2001, blockPos, getId(blockState));
         GuardOreBlocks.guardOres(player, level, blockPos, blockState.getBlock());
-//        player.awardStat(Stats.BLOCK_MINED.get(this));
-//        player.causeFoodExhaustion(0.005F);
-//        dropResources(blockState, level, blockPos, blockEntity, player, itemStack);
         super.playerDestroy(level, player, blockPos, blockState, blockEntity, itemStack);
     }
 }

@@ -40,7 +40,7 @@ public class BasicNetherOresConfig {
 
     public static void setCommon(ConfigAccess access) {
         if (config != null) {
-            Constants.LOGGER.warn("ConfigAccess was replaced! Old {} New {}",
+            Constants.LOG.warn("ConfigAccess was replaced! Old {} New {}",
                     config.getClass().getName(), access.getClass().getName());
         }
         config = access;

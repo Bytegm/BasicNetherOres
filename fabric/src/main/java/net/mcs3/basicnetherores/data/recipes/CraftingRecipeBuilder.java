@@ -12,15 +12,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
-import java.util.function.Consumer;
-
 public class CraftingRecipeBuilder extends FabricRecipeProvider {
     public CraftingRecipeBuilder(FabricDataOutput output) {
         super(output);
     }
 
     @Override
-    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
+    public void buildRecipes(RecipeOutput exporter) {
 
         shapedMetalBlocks(exporter, BNOBlocks.ALUMINUM_BLOCK, BNOItems.ALUMINUM_INGOT);
         shapedMetalBlocks(exporter, BNOBlocks.LEAD_BLOCK, BNOItems.LEAD_INGOT);
@@ -100,9 +98,10 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
         smeltingRawOre(exporter, BNOItems.OSMIUM_INGOT, BNOItems.RAW_OSMIUM);
         smeltingRawOre(exporter, BNOItems.URANIUM_INGOT, BNOItems.RAW_URANIUM);
         smeltingRawOre(exporter, BNOItems.ZINC_INGOT, BNOItems.RAW_ZINC);
+
     }
 
-    private static void shapedMetalBlocks(Consumer<FinishedRecipe> consumer, Block craftedItem, Item inputItem)
+    private static void shapedMetalBlocks(RecipeOutput consumer, Block craftedItem, Item inputItem)
     {
         String blockName = craftedItem.asItem().toString();
 
@@ -116,7 +115,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .save(consumer, new ResourceLocation(Constants.MOD_ID, blockName + "_from_" + inputItem.asItem().toString()));
     }
 
-    private static void shapedIngot(Consumer<FinishedRecipe> consumer, Item craftedItem, Item inputItem)
+    private static void shapedIngot(RecipeOutput consumer, Item craftedItem, Item inputItem)
     {
         String ingotName = craftedItem.asItem().toString();
 
@@ -130,7 +129,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .save(consumer, new ResourceLocation(Constants.MOD_ID, ingotName + "_from_" + inputItem.asItem().toString()));
     }
 
-    private static void shapelessIngots(Consumer<FinishedRecipe> consumer, Item craftedItem, Block inputBlock)
+    private static void shapelessIngots(RecipeOutput consumer, Item craftedItem, Block inputBlock)
     {
         String ingotName = craftedItem.asItem().toString();
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, craftedItem, 9)
@@ -139,7 +138,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .save(consumer);
     }
 
-    private static void shapelessNuggetsIngots(Consumer<FinishedRecipe> consumer, Item craftedItem, Item inputItem)
+    private static void shapelessNuggetsIngots(RecipeOutput consumer, Item craftedItem, Item inputItem)
     {
         String nuggetName = craftedItem.asItem().toString();
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, craftedItem, 9)
@@ -148,7 +147,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .save(consumer);
     }
 
-    private static void smeltingOres(Consumer<FinishedRecipe> consumer, Item smeltedItem, Item inputOre)
+    private static void smeltingOres(RecipeOutput consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 200)
                 .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
@@ -159,7 +158,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_blasting"));
     }
 
-    private static void smeltingRawOre(Consumer<FinishedRecipe> consumer, Item smeltedItem, Item inputOre)
+    private static void smeltingRawOre(RecipeOutput consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 200)
                 .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))

@@ -1,6 +1,5 @@
 package net.mcs3.basicnetherores.util.helper;
 
-import net.mcs3.basicnetherores.Constants;
 import net.mcs3.basicnetherores.config.BasicNetherOresConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
