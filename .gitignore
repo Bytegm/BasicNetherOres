@@ -20,10 +20,8 @@ build
 
 # other
 eclipse
-runs/
+run/
+run-data/
 
-/common/src/generated/resources/.cache/
-/common/src/generated/resources/
-/forge/src/generated/
-/fabric/src/generated/
-/neoforge/src/generated/
+src/generated/resources/
+
