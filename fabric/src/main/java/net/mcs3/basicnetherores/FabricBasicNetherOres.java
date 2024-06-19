@@ -5,6 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.mcs3.basicnetherores.config.FabricBasicNetherOresConfig;
 import net.mcs3.basicnetherores.init.BNOBlocks;
 import net.mcs3.basicnetherores.init.BNOItems;
+import net.mcs3.basicnetherores.init.BNOPlacedFeatures;
 import net.mcs3.basicnetherores.worldgen.FabricBiomeModifiers;
 import net.mcs3.basicnetherores.worldgen.item.ModCreativeModeTabs;
 import net.minecraft.core.Registry;
@@ -31,6 +32,7 @@ public class FabricBasicNetherOres implements ModInitializer {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ModCreativeModeTabs.BNO_TAB_KEY, ModCreativeModeTabs.BNO_TAB);
 
         FabricBasicNetherOresConfig.setup();
+        BNOPlacedFeatures.initialize();
 
         BNOBlocks.registerBlocks(bind(BuiltInRegistries.BLOCK));
         BNOBlocks.registerItemBlocks(bind(BuiltInRegistries.ITEM));

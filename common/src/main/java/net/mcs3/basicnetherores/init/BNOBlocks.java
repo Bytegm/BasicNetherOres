@@ -4,6 +4,7 @@ import net.mcs3.basicnetherores.Constants;
 import net.mcs3.basicnetherores.worldgen.level.block.ModOreBlock;
 import net.mcs3.basicnetherores.worldgen.level.block.ModRedstoneOreBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.material.MapColor;
 import static net.mcs3.basicnetherores.util.helper.ResourceLocationHelper.prefix;
 
 import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class BNOBlocks {

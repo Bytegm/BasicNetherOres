@@ -1,10 +1,10 @@
 package net.mcs3.basicnetherores.platform;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.mcs3.basicnetherores.platform.services.IPlatformHelper;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 
 public class FabricPlatformHelper implements IPlatformHelper {
 
@@ -31,8 +31,8 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public FabricItemSettings defaultItemBuilder() {
-        return new FabricItemSettings();
+    public Item.Properties defaultItemBuilder() {
+        return new Item.Properties();
     }
 
     @Override

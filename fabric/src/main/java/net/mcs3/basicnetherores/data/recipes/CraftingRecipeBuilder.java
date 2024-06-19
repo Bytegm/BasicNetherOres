@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.mcs3.basicnetherores.Constants;
 import net.mcs3.basicnetherores.init.BNOBlocks;
 import net.mcs3.basicnetherores.init.BNOItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -12,9 +13,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
+import java.util.concurrent.CompletableFuture;
+
 public class CraftingRecipeBuilder extends FabricRecipeProvider {
-    public CraftingRecipeBuilder(FabricDataOutput output) {
-        super(output);
+    public CraftingRecipeBuilder(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> provider) {
+        super(output, provider);
     }
 
     @Override
@@ -168,6 +171,4 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
                 .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_blasting_raw"));
     }
-
-
 }

@@ -1,10 +1,43 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
-        maven { url 'https://maven.fabricmc.net/' }
-        maven { url 'https://maven.minecraftforge.net/' }
-        maven { url 'https://maven.neoforged.net/releases/' }
-        maven { url 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = 'Fabric'
+                    url = uri("https://maven.fabricmc.net")
+                }
+            }
+            filter {
+                includeGroup("net.fabricmc")
+                includeGroup("fabric-loom")
+            }
+        }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = 'NeoForge'
+                    url = uri("https://maven.neoforged.net/releases")
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("net.neoforged")
+                includeGroup("codechicken")
+            }
+        }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = 'Sponge Snapshots'
+                    url = uri("https://repo.spongepowered.org/repository/maven-public")
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("org.spongepowered")
+                includeGroup("net.minecraftforge")
+            }
+        }
     }
 }
 
@@ -13,8 +46,7 @@ plugins {
 }
 
 // This should match the folder name of the project, or else IDEA may complain (see https://youtrack.jetbrains.com/issue/IDEA-317606)
-rootProject.name = 'BNO_20.4'
+rootProject.name = 'BNO_20.6'
 include("common")
 include("fabric")
-include("forge")
 include("neoforge")

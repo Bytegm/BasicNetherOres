@@ -4,7 +4,7 @@ import net.mcs3.basicnetherores.util.helper.OreTextHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -32,7 +32,7 @@ public class BNOPlacedFeatures {
     public static final ResourceKey<PlacedFeature> ORE_URANIUM_PLACED_FEATURE = createKey("ore_uranium_nether");
     public static final ResourceKey<PlacedFeature> ORE_ZINC_PLACED_FEATURE = createKey("ore_zinc_nether");
 
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         Holder.Reference<ConfiguredFeature<?, ?>> holderEmerald = holderGetter.getOrThrow(BNOConfiguredFeatures.ORE_EMERALD_CONFIGURED_FEATURE);
@@ -124,7 +124,7 @@ public class BNOPlacedFeatures {
         return ResourceKey.create(Registries.PLACED_FEATURE, prefix(name));
     }
 
-    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration,
+    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration,
                                  List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }

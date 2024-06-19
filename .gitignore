@@ -22,8 +22,7 @@ build
 eclipse
 runs/
 
-/common/src/generated/resources/.cache/
-/common/src/generated/resources/
+/common/src/generated
 /forge/src/generated/
 /fabric/src/generated/
 /neoforge/src/generated/

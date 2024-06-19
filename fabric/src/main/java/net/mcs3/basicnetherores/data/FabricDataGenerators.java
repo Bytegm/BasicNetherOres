@@ -8,8 +8,6 @@ import net.mcs3.basicnetherores.data.models.BlockStateGenerator;
 import net.mcs3.basicnetherores.data.recipes.CraftingRecipeBuilder;
 import net.mcs3.basicnetherores.data.tags.FabricBlockTagGenerator;
 import net.mcs3.basicnetherores.data.tags.FabricItemTagGenerator;
-import net.mcs3.basicnetherores.data.tags.VanillaBlockTagGenerator;
-import net.mcs3.basicnetherores.data.tags.VanillaItemTagGenerator;
 import net.mcs3.basicnetherores.data.worldgen.FabricWorldDataGenerator;
 import net.mcs3.basicnetherores.init.BNOConfiguredFeatures;
 import net.mcs3.basicnetherores.init.BNOPlacedFeatures;
@@ -21,13 +19,12 @@ public class FabricDataGenerators implements DataGeneratorEntrypoint {
 
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
-        configureFabricDatagen(generator.createPack());
 
-//        if (System.getProperty("bno.common_datagen") != null) {
-//            configureCommonDatagen(generator.createPack());
-//        } else {
-//            configureFabricDatagen(generator.createPack());
-//        }
+        if (System.getProperty("bno.common_datagen") != null) {
+            configureCommonDatagen(generator.createPack());
+        } else {
+            configureFabricDatagen(generator.createPack());
+        }
     }
 
     @Override
@@ -36,27 +33,17 @@ public class FabricDataGenerators implements DataGeneratorEntrypoint {
         registryBuilder.add(Registries.PLACED_FEATURE, BNOPlacedFeatures::bootstrap);
 
         DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
-
-
-//        if (System.getProperty("bno.common_datagen") != null) {
-//
-//        } else {
-//            registryBuilder.add(Registries.CONFIGURED_FEATURE, BNOConfiguredFeatures::bootstrap);
-//            registryBuilder.add(Registries.PLACED_FEATURE, BNOPlacedFeatures::bootstrap);
-//
-//        }
-//        DataGeneratorEntrypoint.super.buildRegistry(registryBuilder);
     }
 
     private static void configureFabricDatagen(FabricDataGenerator.Pack pack) {
         Constants.LOG.info("Fabric Data Gen");
+    }
 
-        var blockTagGenerator = pack.addProvider(FabricBlockTagGenerator::new);
-        pack.addProvider(((output, registriesFuture) -> new FabricItemTagGenerator(output, registriesFuture, blockTagGenerator.contentsGetter())));
+    private static void configureCommonDatagen(FabricDataGenerator.Pack pack) {
 
-
-//        var vanillaBlockTagProvider = pack.addProvider(VanillaBlockTagGenerator::new);
-//        pack.addProvider((output, registriesFuture) -> new VanillaItemTagGenerator(output, registriesFuture, vanillaBlockTagProvider.contentsGetter()));
+        Constants.LOG.info("Common Data Gen");
+        FabricBlockTagGenerator blockTagProvider = pack.addProvider(FabricBlockTagGenerator::new);
+        pack.addProvider((output, registriesFuture) -> new FabricItemTagGenerator(output, registriesFuture, blockTagProvider.contentsGetter()));
 
         pack.addProvider(BlockStateGenerator::new);
         pack.addProvider(LootTableGenerator::new);
@@ -64,17 +51,6 @@ public class FabricDataGenerators implements DataGeneratorEntrypoint {
 
         pack.addProvider(FabricWorldDataGenerator::new);
     }
-
-//    private static void configureCommonDatagen(FabricDataGenerator.Pack pack) {
-//
-//        Constants.LOG.info("Common Data Gen");
-//        VanillaBlockTagGenerator blockTagProvider = pack.addProvider(VanillaBlockTagGenerator::new);
-//        pack.addProvider((output, registriesFuture) -> new VanillaItemTagGenerator(output, registriesFuture, blockTagProvider.contentsGetter()));
-//
-//        pack.addProvider(BlockStateGenerator::new);
-//        pack.addProvider(LootTableGenerator::new);
-//        pack.addProvider(CraftingRecipeBuilder::new);
-//    }
 
 
 }

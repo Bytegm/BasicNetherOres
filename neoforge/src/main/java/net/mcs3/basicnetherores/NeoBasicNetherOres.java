@@ -36,12 +36,6 @@ public class NeoBasicNetherOres {
         CREATIVE_MODE_TABS.register(bus);
 
         NeoBasicNetherOresConfig.setup();
-
-
-//        BlockRegistry.init();
-//        CreativeTabRegistry.init();
-
-
     }
 
     private void registryInit() {

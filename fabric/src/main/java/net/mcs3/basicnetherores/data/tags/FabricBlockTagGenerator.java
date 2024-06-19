@@ -4,6 +4,7 @@ import net.mcs3.basicnetherores.init.BNOBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -11,46 +12,52 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
 
-public class FabricBlockTagGenerator extends VanillaBlockTagGenerator {
+public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> {
 
     public static final TagKey<Block> ORES = blockTag(new ResourceLocation("c", "ores"));
+    public static final TagKey<Block> STORAGE_BLOCKS = blockTag(new ResourceLocation("c", "storage_blocks"));
 
-    public static final TagKey<Block> ORES_EMERALD = blockTag(new ResourceLocation("c", "emerald_ores"));
-    public static final TagKey<Block> ORES_DIAMOND = blockTag(new ResourceLocation("c", "diamond_ores"));
-    public static final TagKey<Block> ORES_REDSTONE = blockTag(new ResourceLocation("c", "redstone_ores"));
-    public static final TagKey<Block> ORES_LAPIS = blockTag(new ResourceLocation("c", "lapis_ores"));
-    public static final TagKey<Block> ORES_COAL = blockTag(new ResourceLocation("c", "coal_ores"));
-    public static final TagKey<Block> ORES_IRON = blockTag(new ResourceLocation("c", "iron_ores"));
-    public static final TagKey<Block> ORES_ALUMINUM = blockTag(new ResourceLocation("c", "aluminum_ores"));
-    public static final TagKey<Block> ORES_SILVER = blockTag(new ResourceLocation("c", "silver_ores"));
-    public static final TagKey<Block> ORES_LEAD = blockTag(new ResourceLocation("c", "lead_ores"));
-    public static final TagKey<Block> ORES_NICKEL = blockTag(new ResourceLocation("c", "nickel_ores"));
-    public static final TagKey<Block> ORES_COPPER = blockTag(new ResourceLocation("c", "copper_ores"));
-    public static final TagKey<Block> ORES_TIN = blockTag(new ResourceLocation("c", "tin_ores"));
-    public static final TagKey<Block> ORES_OSMIUM = blockTag(new ResourceLocation("c", "osmium_ores"));
-    public static final TagKey<Block> ORES_URANIUM = blockTag(new ResourceLocation("c", "uranium_ores"));
-    public static final TagKey<Block> ORES_ZINC = blockTag(new ResourceLocation("c", "zinc_ores"));
 
-    public static final TagKey<Block> ALUMINUM_BLOCK = blockTag(new ResourceLocation("c", "aluminum_blocks"));
-    public static final TagKey<Block> SILVER_BLOCK = blockTag(new ResourceLocation("c", "silver_blocks"));
-    public static final TagKey<Block> LEAD_BLOCK = blockTag(new ResourceLocation("c", "lead_blocks"));
-    public static final TagKey<Block> NICKEL_BLOCK = blockTag(new ResourceLocation("c", "nickel_blocks"));
-    public static final TagKey<Block> TIN_BLOCK = blockTag(new ResourceLocation("c", "tin_blocks"));
-    public static final TagKey<Block> OSMIUM_BLOCK = blockTag(new ResourceLocation("c", "osmium_blocks"));
-    public static final TagKey<Block> URANIUM_BLOCK = blockTag(new ResourceLocation("c", "uranium_blocks"));
-    public static final TagKey<Block> ZINC_BLOCK = blockTag(new ResourceLocation("c", "zinc_blocks"));
+    public static final TagKey<Block> ORES_EMERALD = blockTag(new ResourceLocation("c", "ores/emerald"));
+    public static final TagKey<Block> ORES_DIAMOND = blockTag(new ResourceLocation("c", "ores/diamond"));
+    public static final TagKey<Block> ORES_REDSTONE = blockTag(new ResourceLocation("c", "ores/redstone"));
+    public static final TagKey<Block> ORES_LAPIS = blockTag(new ResourceLocation("c", "ores/lapis"));
+    public static final TagKey<Block> ORES_COAL = blockTag(new ResourceLocation("c", "ores/coal"));
+    public static final TagKey<Block> ORES_IRON = blockTag(new ResourceLocation("c", "ores/iron"));
+    public static final TagKey<Block> ORES_ALUMINUM = blockTag(new ResourceLocation("c", "ores/aluminum"));
+    public static final TagKey<Block> ORES_ALUMINIUM = blockTag(new ResourceLocation("c", "ores/aluminium"));
+    public static final TagKey<Block> ORES_SILVER = blockTag(new ResourceLocation("c", "ores/silver"));
+    public static final TagKey<Block> ORES_LEAD = blockTag(new ResourceLocation("c", "ores/lead"));
+    public static final TagKey<Block> ORES_NICKEL = blockTag(new ResourceLocation("c", "ores/nickel"));
+    public static final TagKey<Block> ORES_COPPER = blockTag(new ResourceLocation("c", "ores/copper"));
+    public static final TagKey<Block> ORES_TIN = blockTag(new ResourceLocation("c", "ores/tin"));
+    public static final TagKey<Block> ORES_OSMIUM = blockTag(new ResourceLocation("c", "ores/osmium"));
+    public static final TagKey<Block> ORES_URANIUM = blockTag(new ResourceLocation("c", "ores/uranium"));
+    public static final TagKey<Block> ORES_ZINC = blockTag(new ResourceLocation("c", "ores/zinc"));
 
-    public static final TagKey<Block> RAW_ALUMINUM_BLOCK = blockTag(new ResourceLocation("c", "raw_aluminum_blocks"));
-    public static final TagKey<Block> RAW_SILVER_BLOCK = blockTag(new ResourceLocation("c", "raw_silver_blocks"));
-    public static final TagKey<Block> RAW_LEAD_BLOCK = blockTag(new ResourceLocation("c", "raw_lead_blocks"));
-    public static final TagKey<Block> RAW_NICKEL_BLOCK = blockTag(new ResourceLocation("c", "raw_nickel_blocks"));
-    public static final TagKey<Block> RAW_TIN_BLOCK = blockTag(new ResourceLocation("c", "raw_tin_blocks"));
-    public static final TagKey<Block> RAW_OSMIUM_BLOCK = blockTag(new ResourceLocation("c", "raw_osmium_blocks"));
-    public static final TagKey<Block> RAW_URANIUM_BLOCK = blockTag(new ResourceLocation("c", "raw_uranium_blocks"));
-    public static final TagKey<Block> RAW_ZINC_BLOCK = blockTag(new ResourceLocation("c", "raw_zinc_blocks"));
+    public static final TagKey<Block> ALUMINUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/aluminum"));
+    public static final TagKey<Block> ALUMINIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/aluminium"));
+    public static final TagKey<Block> SILVER_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/silver"));
+    public static final TagKey<Block> LEAD_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/lead"));
+    public static final TagKey<Block> NICKEL_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/nickel"));
+    public static final TagKey<Block> TIN_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/tin"));
+    public static final TagKey<Block> OSMIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/osmium"));
+    public static final TagKey<Block> URANIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/uranium"));
+    public static final TagKey<Block> ZINC_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/zinc"));
+
+    public static final TagKey<Block> RAW_ALUMINUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_aluminum"));
+    public static final TagKey<Block> RAW_ALUMINIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_aluminium"));
+    public static final TagKey<Block> RAW_SILVER_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_silver"));
+    public static final TagKey<Block> RAW_LEAD_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_lead"));
+    public static final TagKey<Block> RAW_NICKEL_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_nickel"));
+    public static final TagKey<Block> RAW_TIN_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_tin"));
+    public static final TagKey<Block> RAW_OSMIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_osmium"));
+    public static final TagKey<Block> RAW_URANIUM_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_uranium"));
+    public static final TagKey<Block> RAW_ZINC_BLOCK = blockTag(new ResourceLocation("c", "storage_blocks/raw_zinc"));
 
     public FabricBlockTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, lookupProvider);
+//        super(packOutput, lookupProvider);
+        super(packOutput, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key());
     }
 
     private static TagKey<Block> blockTag(ResourceLocation location) {
@@ -143,7 +150,7 @@ public class FabricBlockTagGenerator extends VanillaBlockTagGenerator {
         );
 
         // ***************************************************************************** //
-        //  Fabric Tags (Only Account for Fabric Tags Here)
+        //  Common Tags (Only Account for Common Tags Here)
         // ***************************************************************************** //
 
         tag(ORES).add(
@@ -172,6 +179,7 @@ public class FabricBlockTagGenerator extends VanillaBlockTagGenerator {
         tag(ORES_REDSTONE).add(BNOBlocks.NETHER_REDSTONE_ORE);
 
         tag(ORES_ALUMINUM).add(BNOBlocks.NETHER_ALUMINUM_ORE);
+        tag(ORES_ALUMINIUM).add(BNOBlocks.NETHER_ALUMINUM_ORE);
         tag(ORES_SILVER).add(BNOBlocks.NETHER_SILVER_ORE);
         tag(ORES_LEAD).add(BNOBlocks.NETHER_LEAD_ORE);
         tag(ORES_NICKEL).add(BNOBlocks.NETHER_NICKEL_ORE);
@@ -181,7 +189,28 @@ public class FabricBlockTagGenerator extends VanillaBlockTagGenerator {
         tag(ORES_URANIUM).add(BNOBlocks.NETHER_URANIUM_ORE);
         tag(ORES_ZINC).add(BNOBlocks.NETHER_ZINC_ORE);
 
+        tag(STORAGE_BLOCKS).add(
+                BNOBlocks.ALUMINUM_BLOCK,
+                BNOBlocks.SILVER_BLOCK,
+                BNOBlocks.LEAD_BLOCK,
+                BNOBlocks.NICKEL_BLOCK,
+                BNOBlocks.TIN_BLOCK,
+                BNOBlocks.OSMIUM_BLOCK,
+                BNOBlocks.URANIUM_BLOCK,
+                BNOBlocks.ZINC_BLOCK,
+
+                BNOBlocks.RAW_ALUMINUM_BLOCK,
+                BNOBlocks.RAW_SILVER_BLOCK,
+                BNOBlocks.RAW_LEAD_BLOCK,
+                BNOBlocks.RAW_NICKEL_BLOCK,
+                BNOBlocks.RAW_TIN_BLOCK,
+                BNOBlocks.RAW_OSMIUM_BLOCK,
+                BNOBlocks.RAW_URANIUM_BLOCK,
+                BNOBlocks.RAW_ZINC_BLOCK
+        );
+
         tag(ALUMINUM_BLOCK).add(BNOBlocks.ALUMINUM_BLOCK);
+        tag(ALUMINIUM_BLOCK).add(BNOBlocks.ALUMINUM_BLOCK);
         tag(SILVER_BLOCK).add(BNOBlocks.SILVER_BLOCK);
         tag(LEAD_BLOCK).add(BNOBlocks.LEAD_BLOCK);
         tag(NICKEL_BLOCK).add(BNOBlocks.NICKEL_BLOCK);
@@ -191,6 +220,7 @@ public class FabricBlockTagGenerator extends VanillaBlockTagGenerator {
         tag(ZINC_BLOCK).add(BNOBlocks.ZINC_BLOCK);
 
         tag(RAW_ALUMINUM_BLOCK).add(BNOBlocks.RAW_ALUMINUM_BLOCK);
+        tag(RAW_ALUMINIUM_BLOCK).add(BNOBlocks.RAW_ALUMINUM_BLOCK);
         tag(RAW_SILVER_BLOCK).add(BNOBlocks.RAW_SILVER_BLOCK);
         tag(RAW_LEAD_BLOCK).add(BNOBlocks.RAW_LEAD_BLOCK);
         tag(RAW_NICKEL_BLOCK).add(BNOBlocks.RAW_NICKEL_BLOCK);

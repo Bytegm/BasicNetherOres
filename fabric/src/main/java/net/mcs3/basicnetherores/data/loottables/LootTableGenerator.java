@@ -4,14 +4,16 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.mcs3.basicnetherores.init.BNOBlocks;
 import net.mcs3.basicnetherores.init.BNOItems;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
 public class LootTableGenerator extends FabricBlockLootTableProvider {
 
-    public LootTableGenerator(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    public LootTableGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> provider) {
+        super(dataOutput, provider);
     }
 
     @Override
