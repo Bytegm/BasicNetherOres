@@ -21,6 +21,7 @@ public class BlockTagGenerator extends BlockTagsProvider
 {
 
     public static final TagKey<Block> ORES_ALUMINUM = tagForge("ores/aluminum");
+    public static final TagKey<Block> ORES_ALUMINIUM = tagForge("ores/aluminium");
     public static final TagKey<Block> ORES_SILVER = tagForge("ores/silver");
     public static final TagKey<Block> ORES_LEAD = tagForge("ores/lead");
     public static final TagKey<Block> ORES_NICKEL = tagForge("ores/nickel");
@@ -31,6 +32,7 @@ public class BlockTagGenerator extends BlockTagsProvider
     public static final TagKey<Block> ORES_ZINC = tagForge("ores/zinc");
 
     public static final TagKey<Block> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
+    public static final TagKey<Block> ALUMINIUM_BLOCK = tagForge("storage_blocks/aluminium");
     public static final TagKey<Block> SILVER_BLOCK = tagForge("storage_blocks/silver");
     public static final TagKey<Block> LEAD_BLOCK = tagForge("storage_blocks/lead");
     public static final TagKey<Block> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
@@ -40,6 +42,7 @@ public class BlockTagGenerator extends BlockTagsProvider
     public static final TagKey<Block> ZINC_BLOCK = tagForge("storage_blocks/zinc");
 
     public static final TagKey<Block> RAW_ALUMINUM_BLOCK = tagForge("storage_blocks/raw_aluminum");
+    public static final TagKey<Block> RAW_ALUMINIUM_BLOCK = tagForge("storage_blocks/raw_aluminium");
     public static final TagKey<Block> RAW_SILVER_BLOCK = tagForge("storage_blocks/raw_silver");
     public static final TagKey<Block> RAW_LEAD_BLOCK = tagForge("storage_blocks/raw_lead");
     public static final TagKey<Block> RAW_NICKEL_BLOCK = tagForge("storage_blocks/raw_nickel");
@@ -201,6 +204,7 @@ public class BlockTagGenerator extends BlockTagsProvider
         tag(ORES_REDSTONE).add(BNOBlocks.NETHER_REDSTONE_ORE.get());
 
         tag(ORES_ALUMINUM).add(BNOBlocks.NETHER_ALUMINUM_ORE.get());
+        tag(ORES_ALUMINIUM).add(BNOBlocks.NETHER_ALUMINUM_ORE.get());
         tag(ORES_SILVER).add(BNOBlocks.NETHER_SILVER_ORE.get());
         tag(ORES_LEAD).add(BNOBlocks.NETHER_LEAD_ORE.get());
         tag(ORES_NICKEL).add(BNOBlocks.NETHER_NICKEL_ORE.get());
@@ -211,6 +215,7 @@ public class BlockTagGenerator extends BlockTagsProvider
         tag(ORES_ZINC).add(BNOBlocks.NETHER_ZINC_ORE.get());
 
         tag(ALUMINUM_BLOCK).add(BNOBlocks.ALUMINUM_BLOCK.get());
+        tag(ALUMINIUM_BLOCK).add(BNOBlocks.ALUMINUM_BLOCK.get());
         tag(SILVER_BLOCK).add(BNOBlocks.SILVER_BLOCK.get());
         tag(LEAD_BLOCK).add(BNOBlocks.LEAD_BLOCK.get());
         tag(NICKEL_BLOCK).add(BNOBlocks.NICKEL_BLOCK.get());
@@ -220,6 +225,7 @@ public class BlockTagGenerator extends BlockTagsProvider
         tag(ZINC_BLOCK).add(BNOBlocks.ZINC_BLOCK.get());
 
         tag(RAW_ALUMINUM_BLOCK).add(BNOBlocks.RAW_ALUMINUM_BLOCK.get());
+        tag(RAW_ALUMINIUM_BLOCK).add(BNOBlocks.RAW_ALUMINUM_BLOCK.get());
         tag(RAW_SILVER_BLOCK).add(BNOBlocks.RAW_SILVER_BLOCK.get());
         tag(RAW_LEAD_BLOCK).add(BNOBlocks.RAW_LEAD_BLOCK.get());
         tag(RAW_NICKEL_BLOCK).add(BNOBlocks.RAW_NICKEL_BLOCK.get());

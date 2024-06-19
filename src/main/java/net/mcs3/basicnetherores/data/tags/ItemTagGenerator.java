@@ -18,6 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class ItemTagGenerator extends ItemTagsProvider {
 
     public static final TagKey<Item> ORES_ALUMINUM = tagForge("ores/aluminum");
+    public static final TagKey<Item> ORES_ALUMINIUM = tagForge("ores/aluminium");
     public static final TagKey<Item> ORES_SILVER = tagForge("ores/silver");
     public static final TagKey<Item> ORES_LEAD = tagForge("ores/lead");
     public static final TagKey<Item> ORES_NICKEL = tagForge("ores/nickel");
@@ -28,6 +29,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> ORES_ZINC = tagForge("ores/zinc");
 
     public static final TagKey<Item> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
+    public static final TagKey<Item> ALUMINIUM_BLOCK = tagForge("storage_blocks/aluminium");
     public static final TagKey<Item> SILVER_BLOCK = tagForge("storage_blocks/silver");
     public static final TagKey<Item> LEAD_BLOCK = tagForge("storage_blocks/lead");
     public static final TagKey<Item> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
@@ -37,6 +39,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> ZINC_BLOCK = tagForge("storage_blocks/zinc");
 
     public static final TagKey<Item> RAW_ALUMINUM_BLOCK = tagForge("storage_blocks/raw_aluminum");
+    public static final TagKey<Item> RAW_ALUMINIUM_BLOCK = tagForge("storage_blocks/raw_aluminium");
     public static final TagKey<Item> RAW_SILVER_BLOCK = tagForge("storage_blocks/raw_silver");
     public static final TagKey<Item> RAW_LEAD_BLOCK = tagForge("storage_blocks/raw_lead");
     public static final TagKey<Item> RAW_NICKEL_BLOCK = tagForge("storage_blocks/raw_nickel");
@@ -46,6 +49,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> RAW_ZINC_BLOCK = tagForge("storage_blocks/raw_zinc");
 
     public static final TagKey<Item> INGOT_ALUMINUM = tagForge("ingots/aluminum");
+    public static final TagKey<Item> INGOT_ALUMINIUM = tagForge("ingots/aluminium");
     public static final TagKey<Item> INGOT_SILVER = tagForge("ingots/silver");
     public static final TagKey<Item> INGOT_LEAD = tagForge("ingots/lead");
     public static final TagKey<Item> INGOT_NICKEL = tagForge("ingots/nickel");
@@ -55,6 +59,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> INGOT_ZINC = tagForge("ingots/zinc");
 
     public static final TagKey<Item> NUGGET_ALUMINUM = tagForge("nuggets/aluminum");
+    public static final TagKey<Item> NUGGET_ALUMINIUM = tagForge("nuggets/aluminium");
     public static final TagKey<Item> NUGGET_SILVER = tagForge("nuggets/silver");
     public static final TagKey<Item> NUGGET_LEAD = tagForge("nuggets/lead");
     public static final TagKey<Item> NUGGET_NICKEL = tagForge("nuggets/nickel");
@@ -64,6 +69,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
     public static final TagKey<Item> NUGGET_ZINC = tagForge("nuggets/zinc");
 
     public static final TagKey<Item> RAW_ALUMINUM = tagForge("raw_materials/aluminum");
+    public static final TagKey<Item> RAW_ALUMINIUM = tagForge("raw_materials/aluminium");
     public static final TagKey<Item> RAW_SILVER = tagForge("raw_materials/silver");
     public static final TagKey<Item> RAW_LEAD = tagForge("raw_materials/lead");
     public static final TagKey<Item> RAW_NICKEL = tagForge("raw_materials/nickel");
@@ -91,6 +97,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
         copy(Tags.Blocks.ORES_REDSTONE, Tags.Items.ORES_REDSTONE);
 
         copy(BlockTagGenerator.ORES_ALUMINUM, ORES_ALUMINUM);
+        copy(BlockTagGenerator.ORES_ALUMINIUM, ORES_ALUMINIUM);
         copy(BlockTagGenerator.ORES_SILVER, ORES_SILVER);
         copy(BlockTagGenerator.ORES_LEAD, ORES_LEAD);
         copy(BlockTagGenerator.ORES_NICKEL, ORES_NICKEL);
@@ -101,6 +108,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
         copy(BlockTagGenerator.ORES_ZINC, ORES_ZINC);
 
         copy(BlockTagGenerator.ALUMINUM_BLOCK, ALUMINUM_BLOCK);
+        copy(BlockTagGenerator.ALUMINIUM_BLOCK, ALUMINIUM_BLOCK);
         copy(BlockTagGenerator.SILVER_BLOCK, SILVER_BLOCK);
         copy(BlockTagGenerator.LEAD_BLOCK, LEAD_BLOCK);
         copy(BlockTagGenerator.NICKEL_BLOCK, NICKEL_BLOCK);
@@ -110,6 +118,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
         copy(BlockTagGenerator.ZINC_BLOCK, ZINC_BLOCK);
 
         copy(BlockTagGenerator.RAW_ALUMINUM_BLOCK, RAW_ALUMINUM_BLOCK);
+        copy(BlockTagGenerator.RAW_ALUMINIUM_BLOCK, RAW_ALUMINIUM_BLOCK);
         copy(BlockTagGenerator.RAW_SILVER_BLOCK, RAW_SILVER_BLOCK);
         copy(BlockTagGenerator.RAW_LEAD_BLOCK, RAW_LEAD_BLOCK);
         copy(BlockTagGenerator.RAW_NICKEL_BLOCK, RAW_NICKEL_BLOCK);
@@ -120,6 +129,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
 
         tag(Tags.Items.INGOTS).addTags(INGOT_ALUMINUM, INGOT_SILVER, INGOT_LEAD, INGOT_NICKEL, INGOT_TIN, INGOT_OSMIUM, INGOT_URANIUM, INGOT_ZINC);
         tag(INGOT_ALUMINUM).add(BNOItems.ALUMINUM_INGOT.get());
+        tag(INGOT_ALUMINIUM).add(BNOItems.ALUMINUM_INGOT.get());
         tag(INGOT_SILVER).add(BNOItems.SILVER_INGOT.get());
         tag(INGOT_LEAD).add(BNOItems.LEAD_INGOT.get());
         tag(INGOT_NICKEL).add(BNOItems.NICKEL_INGOT.get());
@@ -130,6 +140,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
 
         tag(Tags.Items.NUGGETS).addTags(NUGGET_ALUMINUM, NUGGET_SILVER, NUGGET_LEAD, NUGGET_NICKEL, NUGGET_COPPER, NUGGET_TIN, NUGGET_OSMIUM, NUGGET_ZINC);
         tag(NUGGET_ALUMINUM).add(BNOItems.ALUMINUM_NUGGET.get());
+        tag(NUGGET_ALUMINIUM).add(BNOItems.ALUMINUM_NUGGET.get());
         tag(NUGGET_SILVER).add(BNOItems.SILVER_NUGGET.get());
         tag(NUGGET_LEAD).add(BNOItems.LEAD_NUGGET.get());
         tag(NUGGET_NICKEL).add(BNOItems.NICKEL_NUGGET.get());
@@ -140,6 +151,7 @@ public class ItemTagGenerator extends ItemTagsProvider {
 
         tag(Tags.Items.RAW_MATERIALS).addTags(RAW_ALUMINUM, RAW_SILVER, RAW_LEAD, RAW_NICKEL, RAW_TIN, RAW_OSMIUM, RAW_ZINC);
         tag(RAW_ALUMINUM).add(BNOItems.RAW_ALUMINUM.get());
+        tag(RAW_ALUMINIUM).add(BNOItems.RAW_ALUMINUM.get());
         tag(RAW_SILVER).add(BNOItems.RAW_SILVER.get());
         tag(RAW_LEAD).add(BNOItems.RAW_LEAD.get());
         tag(RAW_NICKEL).add(BNOItems.RAW_NICKEL.get());
