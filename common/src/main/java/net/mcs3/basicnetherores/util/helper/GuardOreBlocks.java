@@ -2,12 +2,18 @@ package net.mcs3.basicnetherores.util.helper;
 
 import net.mcs3.basicnetherores.config.BasicNetherOresConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.monster.ZombifiedPiglin;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.item.enchantment.providers.EnchantmentProvider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
@@ -21,7 +27,9 @@ public class GuardOreBlocks {
 
     public static void guardOres(Player player, Level level,  BlockPos pos, Block block) {
 
-        int isSilkTouching = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, player.getMainHandItem());
+        var lookup = level.holderLookup(Registries.ENCHANTMENT);
+
+        int isSilkTouching = EnchantmentHelper.getItemEnchantmentLevel(lookup.getOrThrow(Enchantments.SILK_TOUCH), player.getMainHandItem());
         initProtectedBlocks();
 
         if(BasicNetherOresConfig.common().piglinGuard()) {

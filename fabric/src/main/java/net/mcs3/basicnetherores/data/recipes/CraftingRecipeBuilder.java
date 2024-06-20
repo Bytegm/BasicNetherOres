@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.mcs3.basicnetherores.Constants;
 import net.mcs3.basicnetherores.init.BNOBlocks;
 import net.mcs3.basicnetherores.init.BNOItems;
+import net.mcs3.basicnetherores.util.helper.ResourceLocationHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -14,6 +15,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.mcs3.basicnetherores.util.helper.ResourceLocationHelper.itemName;
 
 public class CraftingRecipeBuilder extends FabricRecipeProvider {
     public CraftingRecipeBuilder(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> provider) {
@@ -106,7 +109,9 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
 
     private static void shapedMetalBlocks(RecipeOutput consumer, Block craftedItem, Item inputItem)
     {
-        String blockName = craftedItem.asItem().toString();
+        String blockName = ResourceLocationHelper.itemName(craftedItem.asItem());
+        String inputName = ResourceLocationHelper.itemName(inputItem.asItem());
+//        String blockName = craftedItem.asItem().toString();
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, craftedItem)
                 .define('#',inputItem)
@@ -115,12 +120,13 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .pattern("###")
                 .group(blockName)
                 .unlockedBy("has_" + blockName, has(inputItem))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, blockName + "_from_" + inputItem.asItem().toString()));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, blockName + "_from_" + inputName));
     }
 
     private static void shapedIngot(RecipeOutput consumer, Item craftedItem, Item inputItem)
     {
-        String ingotName = craftedItem.asItem().toString();
+        String ingotName = ResourceLocationHelper.itemName(craftedItem.asItem());
+        String inputName = ResourceLocationHelper.itemName(inputItem.asItem());
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, craftedItem)
                 .define('#',inputItem)
@@ -129,12 +135,13 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
                 .pattern("###")
                 .group(ingotName)
                 .unlockedBy("has_" + ingotName, has(inputItem))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, ingotName + "_from_" + inputItem.asItem().toString()));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, ingotName + "_from_" + inputName));
     }
 
     private static void shapelessIngots(RecipeOutput consumer, Item craftedItem, Block inputBlock)
     {
-        String ingotName = craftedItem.asItem().toString();
+        String ingotName = ResourceLocationHelper.itemName(craftedItem.asItem());
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, craftedItem, 9)
                 .requires(inputBlock)
                 .unlockedBy(ingotName + "_from_block", has(inputBlock))
@@ -144,6 +151,7 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
     private static void shapelessNuggetsIngots(RecipeOutput consumer, Item craftedItem, Item inputItem)
     {
         String nuggetName = craftedItem.asItem().toString();
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, craftedItem, 9)
                 .requires(inputItem)
                 .unlockedBy(nuggetName + "_from_ingot", has(inputItem))
@@ -153,22 +161,22 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
     private static void smeltingOres(RecipeOutput consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 200)
-                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_smelting"));
+                .unlockedBy("has_" + itemName(inputOre), has(inputOre.asItem()))
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_smelting"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 100)
-                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_blasting"));
+                .unlockedBy("has_" + itemName(inputOre), has(inputOre.asItem()))
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_blasting"));
     }
 
     private static void smeltingRawOre(RecipeOutput consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 200)
                 .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_smelting_raw"));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_smelting_raw"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 100)
                 .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(Constants.MOD_ID, smeltedItem.asItem().toString() + "_from_blasting_raw"));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_blasting_raw"));
     }
 }

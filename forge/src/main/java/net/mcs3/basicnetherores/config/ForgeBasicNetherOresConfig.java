@@ -1,32 +1,27 @@
 package net.mcs3.basicnetherores.config;
 
-import com.electronwill.nightconfig.core.file.CommentedFileConfig;
-import com.electronwill.nightconfig.core.io.WritingMode;
 import net.mcs3.basicnetherores.Constants;
-import net.neoforged.fml.ModLoadingContext;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.loading.FMLConfig;
-import net.neoforged.fml.loading.FMLPaths;
-import net.neoforged.neoforge.common.ModConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
-import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
-
-public class NeoBasicNetherOresConfig {
-
-    private static ModConfigSpec COMMON_SPEC;
+@Mod.EventBusSubscriber(modid = Constants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ForgeBasicNetherOresConfig {
 
     private static class Common implements BasicNetherOresConfig.ConfigAccess {
 
-        public static ModConfigSpec.BooleanValue piglinGuard;
-        public static ModConfigSpec.BooleanValue silkEffect;
-        public static ModConfigSpec.IntValue protectionRange;
-        public static ModConfigSpec.ConfigValue<List<? extends String>> protectedBlocks;
+        public static ForgeConfigSpec.BooleanValue piglinGuard;
+        public static ForgeConfigSpec.BooleanValue silkEffect;
+        public static ForgeConfigSpec.IntValue protectionRange;
+        public static ForgeConfigSpec.ConfigValue<List<? extends String>> protectedBlocks;
 
-        public Common(final ModConfigSpec.Builder builder) {
+        public Common(ForgeConfigSpec.Builder builder) {
+//            builder.push("oreGeneration");
             builder.comment("Piglin Projection Settings");
             builder.push("protName");
 
@@ -59,13 +54,31 @@ public class NeoBasicNetherOresConfig {
                                     "bno:nether_osmium_ore",
                                     "bno:nether_uranium_ore",
                                     "bno:nether_zinc_ore",
+                                    "bno:basalt_emerald_ore",
+                                    "bno:basalt_diamond_ore",
+                                    "bno:basalt_lapis_ore",
+                                    "bno:basalt_redstone_ore",
+                                    "bno:basalt_silver_ore",
+                                    "bno:basalt_iron_ore",
+                                    "bno:basalt_lead_ore",
+                                    "bno:basalt_nickel_ore",
+                                    "bno:basalt_coal_ore",
+                                    "bno:basalt_copper_ore",
+                                    "bno:basalt_aluminum_ore",
+                                    "bno:basalt_tin_ore",
+                                    "bno:basalt_osmium_ore",
+                                    "bno:basalt_uranium_ore",
+                                    "bno:basalt_zinc_ore",
                                     "minecraft:glowstone",
                                     "minecraft:nether_quartz_ore"
                             }), (obj) -> obj instanceof String ? true : false);
 
-            builder.pop();
+            //World Ore Generation
+//            emeraldGeneration = builder
+//                    .comment("Generate Emerald Ore")
+//                    .define("ore_generation.world_generation.emerald", true);
 
-            COMMON_SPEC = builder.build();
+            builder.pop();
 
         }
 
@@ -166,19 +179,16 @@ public class NeoBasicNetherOresConfig {
     }
 
     private static final Common COMMON;
-
+    private static final ForgeConfigSpec COMMON_SPEC;
     static {
-        final Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Common::new);
+        final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
         COMMON_SPEC = specPair.getRight();
         COMMON = specPair.getLeft();
     }
 
     public static void setup() {
-        ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
-        Path path = FMLPaths.GAMEDIR.get().resolve(FMLConfig.defaultConfigPath()).resolve(Constants.MOD_ID + "-server.toml");
-        final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
-        configData.load();
-        COMMON_SPEC.setConfig(configData);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, COMMON_SPEC);
+        BasicNetherOresConfig.setCommon(COMMON);
     }
 
 }

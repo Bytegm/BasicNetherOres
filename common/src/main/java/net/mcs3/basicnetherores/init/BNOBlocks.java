@@ -47,6 +47,22 @@ public class BNOBlocks {
     public static final Block NETHER_URANIUM_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
     public static final Block NETHER_ZINC_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
 
+    public static final Block BASALT_EMERALD_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(3, 7));
+    public static final Block BASALT_DIAMOND_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(3,7));
+    public static final Block BASALT_REDSTONE_ORE = new ModRedstoneOreBlock(REDSTONE_ORE_PROPERTIES);
+    public static final Block BASALT_LAPIS_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(2,5));
+    public static final Block BASALT_COAL_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES, UniformInt.of(0,2));
+    public static final Block BASALT_SILVER_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_IRON_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_LEAD_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_NICKEL_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_COPPER_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_ALUMINUM_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_TIN_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_OSMIUM_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_URANIUM_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+    public static final Block BASALT_ZINC_ORE = new ModOreBlock(NETHER_ORES_PROPERTIES);
+
     public static final Block ALUMINUM_BLOCK = new Block(METAL_BLOCKS);
     public static final Block LEAD_BLOCK = new Block(METAL_BLOCKS);
     public static final Block NICKEL_BLOCK = new Block(METAL_BLOCKS);
@@ -82,6 +98,22 @@ public class BNOBlocks {
         r.accept(NETHER_OSMIUM_ORE, prefix("nether_osmium_ore"));
         r.accept(NETHER_URANIUM_ORE, prefix("nether_uranium_ore"));
         r.accept(NETHER_ZINC_ORE, prefix("nether_zinc_ore"));
+
+        r.accept(BASALT_EMERALD_ORE, prefix("nether_emerald_ore"));
+        r.accept(BASALT_DIAMOND_ORE, prefix("nether_diamond_ore"));
+        r.accept(BASALT_REDSTONE_ORE, prefix("nether_redstone_ore"));
+        r.accept(BASALT_LAPIS_ORE, prefix("nether_lapis_ore"));
+        r.accept(BASALT_COAL_ORE, prefix("nether_coal_ore"));
+        r.accept(BASALT_SILVER_ORE, prefix("nether_silver_ore"));
+        r.accept(BASALT_IRON_ORE, prefix("nether_iron_ore"));
+        r.accept(BASALT_LEAD_ORE, prefix("nether_lead_ore"));
+        r.accept(BASALT_NICKEL_ORE, prefix("nether_nickel_ore"));
+        r.accept(BASALT_COPPER_ORE, prefix("nether_copper_ore"));
+        r.accept(BASALT_ALUMINUM_ORE, prefix("nether_aluminum_ore"));
+        r.accept(BASALT_TIN_ORE, prefix("nether_tin_ore"));
+        r.accept(BASALT_OSMIUM_ORE, prefix("nether_osmium_ore"));
+        r.accept(BASALT_URANIUM_ORE, prefix("nether_uranium_ore"));
+        r.accept(BASALT_ZINC_ORE, prefix("nether_zinc_ore"));
 
         r.accept(ALUMINUM_BLOCK, prefix("aluminum_block"));
         r.accept(LEAD_BLOCK, prefix("lead_block"));
@@ -122,6 +154,22 @@ public class BNOBlocks {
         r.accept(new BlockItem(NETHER_OSMIUM_ORE, properties), BuiltInRegistries.BLOCK.getKey(NETHER_OSMIUM_ORE));
         r.accept(new BlockItem(NETHER_URANIUM_ORE, properties), BuiltInRegistries.BLOCK.getKey(NETHER_URANIUM_ORE));
         r.accept(new BlockItem(NETHER_ZINC_ORE, properties), BuiltInRegistries.BLOCK.getKey(NETHER_ZINC_ORE));
+
+        r.accept(new BlockItem(BASALT_EMERALD_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_EMERALD_ORE));
+        r.accept(new BlockItem(BASALT_DIAMOND_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_DIAMOND_ORE));
+        r.accept(new BlockItem(BASALT_REDSTONE_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_REDSTONE_ORE));
+        r.accept(new BlockItem(BASALT_LAPIS_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_LAPIS_ORE));
+        r.accept(new BlockItem(BASALT_COAL_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_COAL_ORE));
+        r.accept(new BlockItem(BASALT_SILVER_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_SILVER_ORE));
+        r.accept(new BlockItem(BASALT_IRON_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_IRON_ORE));
+        r.accept(new BlockItem(BASALT_LEAD_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_LEAD_ORE));
+        r.accept(new BlockItem(BASALT_NICKEL_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_NICKEL_ORE));
+        r.accept(new BlockItem(BASALT_COPPER_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_COPPER_ORE));
+        r.accept(new BlockItem(BASALT_ALUMINUM_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_ALUMINUM_ORE));
+        r.accept(new BlockItem(BASALT_TIN_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_TIN_ORE));
+        r.accept(new BlockItem(BASALT_OSMIUM_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_OSMIUM_ORE));
+        r.accept(new BlockItem(BASALT_URANIUM_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_URANIUM_ORE));
+        r.accept(new BlockItem(BASALT_ZINC_ORE, properties), BuiltInRegistries.BLOCK.getKey(BASALT_ZINC_ORE));
 
         r.accept(new BlockItem(ALUMINUM_BLOCK, properties), BuiltInRegistries.BLOCK.getKey(ALUMINUM_BLOCK));
         r.accept(new BlockItem(LEAD_BLOCK, properties), BuiltInRegistries.BLOCK.getKey(LEAD_BLOCK));

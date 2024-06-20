@@ -7,7 +7,7 @@ import net.minecraft.world.item.Item;
 
 public class ResourceLocationHelper {
     public static ResourceLocation prefix(String path) {
-        return new ResourceLocation(Constants.MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, path);
     }
 
     public static String itemName(Item item) {

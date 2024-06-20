@@ -110,6 +110,6 @@ public class BlockStateGenerator extends FabricModelProvider {
     }
 
     private static ModelTemplate createModdedModel(String parent, TextureSlot... requiredTextures) {
-        return new ModelTemplate(Optional.of(new ResourceLocation(Constants.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextures);
+        return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextures);
     }
 }

@@ -9,13 +9,13 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.neoforged.neoforge.common.world.BiomeModifier;
-import net.neoforged.neoforge.common.world.BiomeModifiers;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.minecraftforge.common.world.BiomeModifier;
+import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import static net.mcs3.basicnetherores.init.BNOPlacedFeatures.*;
 
-public class NeoBiomeModifierGenerator {
+public class BiomeModifierGenerator {
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         HolderGetter<Biome> biomeGetter = context.lookup(Registries.BIOME);
@@ -40,7 +40,8 @@ public class NeoBiomeModifierGenerator {
     }
 
     private static void registerOreModifier(BootstrapContext<BiomeModifier> context, HolderGetter<PlacedFeature> placedFeatures, ResourceKey<PlacedFeature> key, HolderSet<Biome> biomes) {
-        BiomeModifiers.AddFeaturesBiomeModifier modifier = new BiomeModifiers.AddFeaturesBiomeModifier(biomes, HolderSet.direct(placedFeatures.getOrThrow(key)), GenerationStep.Decoration.UNDERGROUND_ORES);
-        context.register(ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, key.location()), modifier);
+        ForgeBiomeModifiers.AddFeaturesBiomeModifier modifier = new ForgeBiomeModifiers.AddFeaturesBiomeModifier(biomes, HolderSet.direct(placedFeatures.getOrThrow(key)), GenerationStep.Decoration.UNDERGROUND_ORES);
+        context.register(ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, key.location()), modifier);
     }
+
 }
