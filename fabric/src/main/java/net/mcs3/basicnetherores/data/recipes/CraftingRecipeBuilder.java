@@ -78,6 +78,38 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
         smeltingOres(exporter, BNOItems.URANIUM_INGOT, BNOBlocks.NETHER_URANIUM_ORE.asItem());
         smeltingOres(exporter, BNOItems.ZINC_INGOT, BNOBlocks.NETHER_ZINC_ORE.asItem());
 
+        smeltingOres(exporter, Items.EMERALD, BNOBlocks.BASALT_EMERALD_ORE.asItem());
+        smeltingOres(exporter, Items.DIAMOND, BNOBlocks.BASALT_DIAMOND_ORE.asItem());
+        smeltingOres(exporter, Items.REDSTONE, BNOBlocks.BASALT_REDSTONE_ORE.asItem());
+        smeltingOres(exporter, Items.LAPIS_LAZULI, BNOBlocks.BASALT_LAPIS_ORE.asItem());
+        smeltingOres(exporter, Items.COAL, BNOBlocks.BASALT_COAL_ORE.asItem());
+        smeltingOres(exporter, BNOItems.SILVER_INGOT, BNOBlocks.BASALT_SILVER_ORE.asItem());
+        smeltingOres(exporter, Items.IRON_INGOT, BNOBlocks.BASALT_IRON_ORE.asItem());
+        smeltingOres(exporter, BNOItems.LEAD_INGOT, BNOBlocks.BASALT_LEAD_ORE.asItem());
+        smeltingOres(exporter, BNOItems.NICKEL_INGOT, BNOBlocks.BASALT_NICKEL_ORE.asItem());
+        smeltingOres(exporter, Items.COPPER_INGOT, BNOBlocks.BASALT_COPPER_ORE.asItem());
+        smeltingOres(exporter, BNOItems.ALUMINUM_INGOT, BNOBlocks.BASALT_ALUMINUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.TIN_INGOT, BNOBlocks.BASALT_TIN_ORE.asItem());
+        smeltingOres(exporter, BNOItems.OSMIUM_INGOT, BNOBlocks.BASALT_OSMIUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.URANIUM_INGOT, BNOBlocks.BASALT_URANIUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.ZINC_INGOT, BNOBlocks.BASALT_ZINC_ORE.asItem());
+
+        smeltingOres(exporter, Items.EMERALD, BNOBlocks.SOUL_EMERALD_ORE.asItem());
+        smeltingOres(exporter, Items.DIAMOND, BNOBlocks.SOUL_DIAMOND_ORE.asItem());
+        smeltingOres(exporter, Items.REDSTONE, BNOBlocks.SOUL_REDSTONE_ORE.asItem());
+        smeltingOres(exporter, Items.LAPIS_LAZULI, BNOBlocks.SOUL_LAPIS_ORE.asItem());
+        smeltingOres(exporter, Items.COAL, BNOBlocks.SOUL_COAL_ORE.asItem());
+        smeltingOres(exporter, BNOItems.SILVER_INGOT, BNOBlocks.SOUL_SILVER_ORE.asItem());
+        smeltingOres(exporter, Items.IRON_INGOT, BNOBlocks.SOUL_IRON_ORE.asItem());
+        smeltingOres(exporter, BNOItems.LEAD_INGOT, BNOBlocks.SOUL_LEAD_ORE.asItem());
+        smeltingOres(exporter, BNOItems.NICKEL_INGOT, BNOBlocks.SOUL_NICKEL_ORE.asItem());
+        smeltingOres(exporter, Items.COPPER_INGOT, BNOBlocks.SOUL_COPPER_ORE.asItem());
+        smeltingOres(exporter, BNOItems.ALUMINUM_INGOT, BNOBlocks.SOUL_ALUMINUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.TIN_INGOT, BNOBlocks.SOUL_TIN_ORE.asItem());
+        smeltingOres(exporter, BNOItems.OSMIUM_INGOT, BNOBlocks.SOUL_OSMIUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.URANIUM_INGOT, BNOBlocks.SOUL_URANIUM_ORE.asItem());
+        smeltingOres(exporter, BNOItems.ZINC_INGOT, BNOBlocks.SOUL_ZINC_ORE.asItem());
+
         shapedMetalBlocks(exporter, BNOBlocks.RAW_ALUMINUM_BLOCK, BNOItems.RAW_ALUMINUM);
         shapedMetalBlocks(exporter, BNOBlocks.RAW_LEAD_BLOCK, BNOItems.RAW_LEAD);
         shapedMetalBlocks(exporter, BNOBlocks.RAW_NICKEL_BLOCK, BNOItems.RAW_NICKEL);
@@ -162,11 +194,11 @@ public class CraftingRecipeBuilder extends FabricRecipeProvider {
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 200)
                 .unlockedBy("has_" + itemName(inputOre), has(inputOre.asItem()))
-                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_smelting"));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_" + itemName(inputOre) + "_smelting"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(inputOre), RecipeCategory.MISC, smeltedItem, 0.7F, 100)
                 .unlockedBy("has_" + itemName(inputOre), has(inputOre.asItem()))
-                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_blasting"));
+                .save(consumer, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, itemName(smeltedItem) + "_from_" + itemName(inputOre) + "_blasting"));
     }
 
     private static void smeltingRawOre(RecipeOutput consumer, Item smeltedItem, Item inputOre)

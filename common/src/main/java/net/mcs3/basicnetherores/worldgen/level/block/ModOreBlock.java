@@ -36,33 +36,33 @@ public class ModOreBlock extends DropExperienceBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, Item.TooltipContext tooltipContext, List<Component> tooltip, TooltipFlag flagIn) {
-        if (this == BNOBlocks.NETHER_EMERALD_ORE) {
+        if (this == BNOBlocks.NETHER_EMERALD_ORE || this == BNOBlocks.BASALT_EMERALD_ORE || this == BNOBlocks.SOUL_EMERALD_ORE) {
             tooltip.add(Component.translatable(emeraldOreTip, emeraldMinHeight.toString(), emeraldMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_DIAMOND_ORE) {
+        } else if (this == BNOBlocks.NETHER_DIAMOND_ORE || this == BNOBlocks.BASALT_DIAMOND_ORE || this == BNOBlocks.SOUL_DIAMOND_ORE) {
             tooltip.add(Component.translatable(diamondOreTip, diamondMinHeight.toString(), diamondMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_LAPIS_ORE) {
+        } else if (this == BNOBlocks.NETHER_LAPIS_ORE || this == BNOBlocks.BASALT_LAPIS_ORE || this == BNOBlocks.SOUL_LAPIS_ORE) {
             tooltip.add(Component.translatable(lapisOreTip, lapisMinHeight.toString(), lapisMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_COAL_ORE) {
+        } else if (this == BNOBlocks.NETHER_COAL_ORE || this == BNOBlocks.BASALT_COAL_ORE || this == BNOBlocks.SOUL_COAL_ORE) {
             tooltip.add(Component.translatable(coalOreTip, coalMinHeight.toString(), coalMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_SILVER_ORE) {
+        } else if (this == BNOBlocks.NETHER_SILVER_ORE || this == BNOBlocks.BASALT_SILVER_ORE || this == BNOBlocks.SOUL_SILVER_ORE) {
             tooltip.add(Component.translatable(silverOreTip, silverMinHeight.toString(), silverMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_IRON_ORE) {
+        } else if (this == BNOBlocks.NETHER_IRON_ORE || this == BNOBlocks.BASALT_IRON_ORE || this == BNOBlocks.SOUL_IRON_ORE) {
             tooltip.add(Component.translatable(ironOreTip, ironMinHeight.toString(), ironMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_LEAD_ORE) {
+        } else if (this == BNOBlocks.NETHER_LEAD_ORE || this == BNOBlocks.BASALT_LEAD_ORE || this == BNOBlocks.SOUL_LEAD_ORE) {
             tooltip.add(Component.translatable(leadOreTip, leadMinHeight.toString(), leadMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_NICKEL_ORE) {
+        } else if (this == BNOBlocks.NETHER_NICKEL_ORE || this == BNOBlocks.BASALT_NICKEL_ORE || this == BNOBlocks.SOUL_NICKEL_ORE) {
             tooltip.add(Component.translatable(nickelOreTip, nickelMinHeight.toString(), nickelMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_COPPER_ORE) {
+        } else if (this == BNOBlocks.NETHER_COPPER_ORE || this == BNOBlocks.BASALT_COPPER_ORE || this == BNOBlocks.SOUL_COPPER_ORE) {
             tooltip.add(Component.translatable(copperOreTip, copperMinHeight.toString(), copperMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_ALUMINUM_ORE) {
+        } else if (this == BNOBlocks.NETHER_ALUMINUM_ORE || this == BNOBlocks.BASALT_ALUMINUM_ORE || this == BNOBlocks.SOUL_ALUMINUM_ORE) {
             tooltip.add(Component.translatable(aluminumOreTip, aluminumMinHeight.toString(), aluminumMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_TIN_ORE) {
+        } else if (this == BNOBlocks.NETHER_TIN_ORE || this == BNOBlocks.BASALT_TIN_ORE || this == BNOBlocks.SOUL_TIN_ORE) {
             tooltip.add(Component.translatable(tinOreTip, tinMinHeight.toString(), tinMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_OSMIUM_ORE) {
+        } else if (this == BNOBlocks.NETHER_OSMIUM_ORE || this == BNOBlocks.BASALT_OSMIUM_ORE || this == BNOBlocks.SOUL_OSMIUM_ORE) {
             tooltip.add(Component.translatable(osmiumOreTip, osmiumMinHeight.toString(), osmiumMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_URANIUM_ORE) {
+        } else if (this == BNOBlocks.NETHER_URANIUM_ORE || this == BNOBlocks.BASALT_URANIUM_ORE || this == BNOBlocks.SOUL_URANIUM_ORE) {
             tooltip.add(Component.translatable(uraniumOreTip, uraniumMinHeight.toString(), uraniumMaxHeight.toString()));
-        } else if (this == BNOBlocks.NETHER_ZINC_ORE) {
+        } else if (this == BNOBlocks.NETHER_ZINC_ORE || this == BNOBlocks.BASALT_ZINC_ORE || this == BNOBlocks.SOUL_ZINC_ORE) {
             tooltip.add(Component.translatable(zincOreTip, zincMinHeight.toString(), zincMaxHeight.toString()));
         }
     }

@@ -71,13 +71,13 @@ public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> 
         //  Vanilla Tags (Only Account for Vanilla Tags Here)
         // ***************************************************************************** //
 
-        tag(BlockTags.EMERALD_ORES).add(BNOBlocks.NETHER_EMERALD_ORE);
-        tag(BlockTags.DIAMOND_ORES).add(BNOBlocks.NETHER_DIAMOND_ORE);
-        tag(BlockTags.REDSTONE_ORES).add(BNOBlocks.NETHER_REDSTONE_ORE);
-        tag(BlockTags.LAPIS_ORES).add(BNOBlocks.NETHER_LAPIS_ORE);
-        tag(BlockTags.COAL_ORES).add(BNOBlocks.NETHER_COAL_ORE);
-        tag(BlockTags.IRON_ORES).add(BNOBlocks.NETHER_IRON_ORE);
-        tag(BlockTags.COPPER_ORES).add(BNOBlocks.NETHER_COPPER_ORE);
+        tag(BlockTags.EMERALD_ORES).add(BNOBlocks.NETHER_EMERALD_ORE, BNOBlocks.BASALT_EMERALD_ORE, BNOBlocks.SOUL_EMERALD_ORE);
+        tag(BlockTags.DIAMOND_ORES).add(BNOBlocks.NETHER_DIAMOND_ORE, BNOBlocks.BASALT_DIAMOND_ORE, BNOBlocks.SOUL_DIAMOND_ORE);
+        tag(BlockTags.REDSTONE_ORES).add(BNOBlocks.NETHER_REDSTONE_ORE, BNOBlocks.BASALT_REDSTONE_ORE, BNOBlocks.SOUL_REDSTONE_ORE);
+        tag(BlockTags.LAPIS_ORES).add(BNOBlocks.NETHER_LAPIS_ORE, BNOBlocks.BASALT_LAPIS_ORE, BNOBlocks.SOUL_LAPIS_ORE);
+        tag(BlockTags.COAL_ORES).add(BNOBlocks.NETHER_COAL_ORE, BNOBlocks.BASALT_COAL_ORE, BNOBlocks.SOUL_COAL_ORE);
+        tag(BlockTags.IRON_ORES).add(BNOBlocks.NETHER_IRON_ORE, BNOBlocks.BASALT_IRON_ORE, BNOBlocks.SOUL_IRON_ORE);
+        tag(BlockTags.COPPER_ORES).add(BNOBlocks.NETHER_COPPER_ORE, BNOBlocks.BASALT_COPPER_ORE, BNOBlocks.SOUL_COPPER_ORE);
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
                 BNOBlocks.NETHER_DIAMOND_ORE,
@@ -110,7 +110,41 @@ public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> 
                 BNOBlocks.TIN_BLOCK,
                 BNOBlocks.NETHER_OSMIUM_ORE,
                 BNOBlocks.RAW_OSMIUM_BLOCK,
-                BNOBlocks.OSMIUM_BLOCK
+                BNOBlocks.OSMIUM_BLOCK,
+
+                BNOBlocks.BASALT_EMERALD_ORE,
+                BNOBlocks.BASALT_DIAMOND_ORE,
+                BNOBlocks.BASALT_REDSTONE_ORE,
+                BNOBlocks.BASALT_LAPIS_ORE,
+                BNOBlocks.BASALT_COAL_ORE,
+                BNOBlocks.BASALT_SILVER_ORE,
+                BNOBlocks.BASALT_IRON_ORE,
+                BNOBlocks.BASALT_LEAD_ORE,
+                BNOBlocks.BASALT_NICKEL_ORE,
+                BNOBlocks.BASALT_COPPER_ORE,
+                BNOBlocks.BASALT_ALUMINUM_ORE,
+                BNOBlocks.BASALT_TIN_ORE,
+                BNOBlocks.BASALT_OSMIUM_ORE,
+                BNOBlocks.BASALT_URANIUM_ORE,
+                BNOBlocks.BASALT_ZINC_ORE
+        );
+
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(
+                BNOBlocks.SOUL_EMERALD_ORE,
+                BNOBlocks.SOUL_DIAMOND_ORE,
+                BNOBlocks.SOUL_REDSTONE_ORE,
+                BNOBlocks.SOUL_LAPIS_ORE,
+                BNOBlocks.SOUL_COAL_ORE,
+                BNOBlocks.SOUL_SILVER_ORE,
+                BNOBlocks.SOUL_IRON_ORE,
+                BNOBlocks.SOUL_LEAD_ORE,
+                BNOBlocks.SOUL_NICKEL_ORE,
+                BNOBlocks.SOUL_COPPER_ORE,
+                BNOBlocks.SOUL_ALUMINUM_ORE,
+                BNOBlocks.SOUL_TIN_ORE,
+                BNOBlocks.SOUL_OSMIUM_ORE,
+                BNOBlocks.SOUL_URANIUM_ORE,
+                BNOBlocks.SOUL_ZINC_ORE
         );
 
         tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -131,7 +165,25 @@ public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> 
                 BNOBlocks.URANIUM_BLOCK,
                 BNOBlocks.NETHER_ZINC_ORE,
                 BNOBlocks.RAW_ZINC_BLOCK,
-                BNOBlocks.ZINC_BLOCK
+                BNOBlocks.ZINC_BLOCK,
+
+                BNOBlocks.BASALT_EMERALD_ORE,
+                BNOBlocks.BASALT_DIAMOND_ORE,
+                BNOBlocks.BASALT_REDSTONE_ORE,
+                BNOBlocks.BASALT_SILVER_ORE,
+                BNOBlocks.BASALT_LEAD_ORE,
+                BNOBlocks.BASALT_NICKEL_ORE,
+                BNOBlocks.BASALT_URANIUM_ORE,
+                BNOBlocks.BASALT_ZINC_ORE,
+
+                BNOBlocks.SOUL_EMERALD_ORE,
+                BNOBlocks.SOUL_DIAMOND_ORE,
+                BNOBlocks.SOUL_REDSTONE_ORE,
+                BNOBlocks.SOUL_SILVER_ORE,
+                BNOBlocks.SOUL_LEAD_ORE,
+                BNOBlocks.SOUL_NICKEL_ORE,
+                BNOBlocks.SOUL_URANIUM_ORE,
+                BNOBlocks.SOUL_ZINC_ORE
         );
 
         tag(BlockTags.NEEDS_STONE_TOOL).add(
@@ -146,7 +198,21 @@ public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> 
                 BNOBlocks.TIN_BLOCK,
                 BNOBlocks.NETHER_OSMIUM_ORE,
                 BNOBlocks.RAW_OSMIUM_BLOCK,
-                BNOBlocks.OSMIUM_BLOCK
+                BNOBlocks.OSMIUM_BLOCK,
+
+                BNOBlocks.BASALT_LAPIS_ORE,
+                BNOBlocks.BASALT_COAL_ORE,
+                BNOBlocks.BASALT_IRON_ORE,
+                BNOBlocks.BASALT_COPPER_ORE,
+                BNOBlocks.BASALT_ALUMINUM_ORE,
+                BNOBlocks.BASALT_ZINC_ORE,
+
+                BNOBlocks.SOUL_LAPIS_ORE,
+                BNOBlocks.SOUL_COAL_ORE,
+                BNOBlocks.SOUL_IRON_ORE,
+                BNOBlocks.SOUL_COPPER_ORE,
+                BNOBlocks.SOUL_ALUMINUM_ORE,
+                BNOBlocks.SOUL_ZINC_ORE
         );
 
         // ***************************************************************************** //
@@ -168,26 +234,58 @@ public class FabricBlockTagGenerator extends IntrinsicHolderTagsProvider<Block> 
                 BNOBlocks.NETHER_TIN_ORE,
                 BNOBlocks.NETHER_OSMIUM_ORE,
                 BNOBlocks.NETHER_URANIUM_ORE,
-                BNOBlocks.NETHER_ZINC_ORE
+                BNOBlocks.NETHER_ZINC_ORE,
+
+                BNOBlocks.BASALT_EMERALD_ORE,
+                BNOBlocks.BASALT_DIAMOND_ORE,
+                BNOBlocks.BASALT_REDSTONE_ORE,
+                BNOBlocks.BASALT_LAPIS_ORE,
+                BNOBlocks.BASALT_COAL_ORE,
+                BNOBlocks.BASALT_SILVER_ORE,
+                BNOBlocks.BASALT_IRON_ORE,
+                BNOBlocks.BASALT_LEAD_ORE,
+                BNOBlocks.BASALT_NICKEL_ORE,
+                BNOBlocks.BASALT_COPPER_ORE,
+                BNOBlocks.BASALT_ALUMINUM_ORE,
+                BNOBlocks.BASALT_TIN_ORE,
+                BNOBlocks.BASALT_OSMIUM_ORE,
+                BNOBlocks.BASALT_URANIUM_ORE,
+                BNOBlocks.BASALT_ZINC_ORE,
+
+                BNOBlocks.SOUL_EMERALD_ORE,
+                BNOBlocks.SOUL_DIAMOND_ORE,
+                BNOBlocks.SOUL_REDSTONE_ORE,
+                BNOBlocks.SOUL_LAPIS_ORE,
+                BNOBlocks.SOUL_COAL_ORE,
+                BNOBlocks.SOUL_SILVER_ORE,
+                BNOBlocks.SOUL_IRON_ORE,
+                BNOBlocks.SOUL_LEAD_ORE,
+                BNOBlocks.SOUL_NICKEL_ORE,
+                BNOBlocks.SOUL_COPPER_ORE,
+                BNOBlocks.SOUL_ALUMINUM_ORE,
+                BNOBlocks.SOUL_TIN_ORE,
+                BNOBlocks.SOUL_OSMIUM_ORE,
+                BNOBlocks.SOUL_URANIUM_ORE,
+                BNOBlocks.SOUL_ZINC_ORE
         );
 
-        tag(ORES_COAL).add(BNOBlocks.NETHER_COAL_ORE);
-        tag(ORES_DIAMOND).add(BNOBlocks.NETHER_DIAMOND_ORE);
-        tag(ORES_EMERALD).add(BNOBlocks.NETHER_EMERALD_ORE);
-        tag(ORES_IRON).add(BNOBlocks.NETHER_IRON_ORE);
-        tag(ORES_LAPIS).add(BNOBlocks.NETHER_LAPIS_ORE);
-        tag(ORES_REDSTONE).add(BNOBlocks.NETHER_REDSTONE_ORE);
+        tag(ORES_COAL).add(BNOBlocks.NETHER_COAL_ORE, BNOBlocks.BASALT_COAL_ORE, BNOBlocks.SOUL_COAL_ORE);
+        tag(ORES_DIAMOND).add(BNOBlocks.NETHER_DIAMOND_ORE, BNOBlocks.BASALT_DIAMOND_ORE, BNOBlocks.SOUL_DIAMOND_ORE);
+        tag(ORES_EMERALD).add(BNOBlocks.NETHER_EMERALD_ORE, BNOBlocks.BASALT_EMERALD_ORE, BNOBlocks.SOUL_EMERALD_ORE);
+        tag(ORES_IRON).add(BNOBlocks.NETHER_IRON_ORE, BNOBlocks.BASALT_IRON_ORE, BNOBlocks.SOUL_IRON_ORE);
+        tag(ORES_LAPIS).add(BNOBlocks.NETHER_LAPIS_ORE, BNOBlocks.BASALT_LAPIS_ORE, BNOBlocks.SOUL_LAPIS_ORE);
+        tag(ORES_REDSTONE).add(BNOBlocks.NETHER_REDSTONE_ORE, BNOBlocks.BASALT_REDSTONE_ORE, BNOBlocks.SOUL_REDSTONE_ORE);
 
-        tag(ORES_ALUMINUM).add(BNOBlocks.NETHER_ALUMINUM_ORE);
-        tag(ORES_ALUMINIUM).add(BNOBlocks.NETHER_ALUMINUM_ORE);
-        tag(ORES_SILVER).add(BNOBlocks.NETHER_SILVER_ORE);
-        tag(ORES_LEAD).add(BNOBlocks.NETHER_LEAD_ORE);
-        tag(ORES_NICKEL).add(BNOBlocks.NETHER_NICKEL_ORE);
-        tag(ORES_COPPER).add(BNOBlocks.NETHER_COPPER_ORE);
-        tag(ORES_TIN).add(BNOBlocks.NETHER_TIN_ORE);
-        tag(ORES_OSMIUM).add(BNOBlocks.NETHER_OSMIUM_ORE);
-        tag(ORES_URANIUM).add(BNOBlocks.NETHER_URANIUM_ORE);
-        tag(ORES_ZINC).add(BNOBlocks.NETHER_ZINC_ORE);
+        tag(ORES_ALUMINUM).add(BNOBlocks.NETHER_ALUMINUM_ORE, BNOBlocks.BASALT_ALUMINUM_ORE, BNOBlocks.SOUL_ALUMINUM_ORE);
+        tag(ORES_ALUMINIUM).add(BNOBlocks.NETHER_ALUMINUM_ORE, BNOBlocks.BASALT_ALUMINUM_ORE, BNOBlocks.SOUL_ALUMINUM_ORE);
+        tag(ORES_SILVER).add(BNOBlocks.NETHER_SILVER_ORE, BNOBlocks.BASALT_SILVER_ORE, BNOBlocks.SOUL_SILVER_ORE);
+        tag(ORES_LEAD).add(BNOBlocks.NETHER_LEAD_ORE, BNOBlocks.BASALT_LEAD_ORE, BNOBlocks.SOUL_LEAD_ORE);
+        tag(ORES_NICKEL).add(BNOBlocks.NETHER_NICKEL_ORE, BNOBlocks.BASALT_NICKEL_ORE, BNOBlocks.SOUL_NICKEL_ORE);
+        tag(ORES_COPPER).add(BNOBlocks.NETHER_COPPER_ORE, BNOBlocks.BASALT_COPPER_ORE, BNOBlocks.SOUL_COPPER_ORE);
+        tag(ORES_TIN).add(BNOBlocks.NETHER_TIN_ORE, BNOBlocks.BASALT_TIN_ORE, BNOBlocks.SOUL_TIN_ORE);
+        tag(ORES_OSMIUM).add(BNOBlocks.NETHER_OSMIUM_ORE, BNOBlocks.BASALT_OSMIUM_ORE, BNOBlocks.SOUL_OSMIUM_ORE);
+        tag(ORES_URANIUM).add(BNOBlocks.NETHER_URANIUM_ORE, BNOBlocks.BASALT_URANIUM_ORE, BNOBlocks.SOUL_URANIUM_ORE);
+        tag(ORES_ZINC).add(BNOBlocks.NETHER_ZINC_ORE, BNOBlocks.BASALT_ZINC_ORE, BNOBlocks.SOUL_ZINC_ORE);
 
         tag(STORAGE_BLOCKS).add(
                 BNOBlocks.ALUMINUM_BLOCK,

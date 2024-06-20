@@ -25,6 +25,7 @@ public class BlockStateGenerator extends FabricModelProvider {
     public static final TextureSlot overlayTexture = TextureSlot.create("overlay");
 
     public static final ModelTemplate ORE_TEMPLATE = createModdedModel("cube_overlay_all", TextureSlot.ALL, overlayTexture);
+    public static final ModelTemplate COLUMN_TEMPLATE = createModdedModel("column_overlay_all", TextureSlot.END, TextureSlot.SIDE, overlayTexture);
 
 
     public BlockStateGenerator(FabricDataOutput dataGenerator) {
@@ -34,21 +35,53 @@ public class BlockStateGenerator extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
 
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_EMERALD_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_DIAMOND_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_REDSTONE_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_LAPIS_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_COAL_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_SILVER_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_IRON_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_LEAD_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_NICKEL_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_COPPER_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_ALUMINUM_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_TIN_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_OSMIUM_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_URANIUM_ORE);
-        createSimpleOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_ZINC_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_EMERALD_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_DIAMOND_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_REDSTONE_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_LAPIS_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_COAL_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_SILVER_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_IRON_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_LEAD_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_NICKEL_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_COPPER_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_ALUMINUM_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_TIN_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_OSMIUM_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_URANIUM_ORE);
+        createNetherOreBlocks(blockStateModelGenerator, BNOBlocks.NETHER_ZINC_ORE);
+
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_EMERALD_ORE, BNOBlocks.NETHER_EMERALD_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_DIAMOND_ORE, BNOBlocks.NETHER_DIAMOND_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_REDSTONE_ORE, BNOBlocks.NETHER_REDSTONE_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_LAPIS_ORE, BNOBlocks.NETHER_LAPIS_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_COAL_ORE, BNOBlocks.NETHER_COAL_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_SILVER_ORE, BNOBlocks.NETHER_SILVER_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_IRON_ORE, BNOBlocks.NETHER_IRON_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_LEAD_ORE, BNOBlocks.NETHER_LEAD_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_NICKEL_ORE, BNOBlocks.NETHER_NICKEL_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_COPPER_ORE, BNOBlocks.NETHER_COPPER_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_ALUMINUM_ORE, BNOBlocks.NETHER_ALUMINUM_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_TIN_ORE, BNOBlocks.NETHER_TIN_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_OSMIUM_ORE, BNOBlocks.NETHER_OSMIUM_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_URANIUM_ORE, BNOBlocks.NETHER_URANIUM_ORE);
+        createBasaltOreBlocks(blockStateModelGenerator, BNOBlocks.BASALT_ZINC_ORE, BNOBlocks.NETHER_ZINC_ORE);
+
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_EMERALD_ORE, BNOBlocks.NETHER_EMERALD_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_DIAMOND_ORE, BNOBlocks.NETHER_DIAMOND_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_REDSTONE_ORE, BNOBlocks.NETHER_REDSTONE_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_LAPIS_ORE, BNOBlocks.NETHER_LAPIS_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_COAL_ORE, BNOBlocks.NETHER_COAL_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_SILVER_ORE, BNOBlocks.NETHER_SILVER_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_IRON_ORE, BNOBlocks.NETHER_IRON_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_LEAD_ORE, BNOBlocks.NETHER_LEAD_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_NICKEL_ORE, BNOBlocks.NETHER_NICKEL_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_COPPER_ORE, BNOBlocks.NETHER_COPPER_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_ALUMINUM_ORE, BNOBlocks.NETHER_ALUMINUM_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_TIN_ORE, BNOBlocks.NETHER_TIN_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_OSMIUM_ORE, BNOBlocks.NETHER_OSMIUM_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_URANIUM_ORE, BNOBlocks.NETHER_URANIUM_ORE);
+        createSoulOreBlocks(blockStateModelGenerator, BNOBlocks.SOUL_ZINC_ORE, BNOBlocks.NETHER_ZINC_ORE);
 
         blockStateModelGenerator.createTrivialCube(BNOBlocks.ALUMINUM_BLOCK);
         blockStateModelGenerator.createTrivialCube(BNOBlocks.LEAD_BLOCK);
@@ -100,7 +133,7 @@ public class BlockStateGenerator extends FabricModelProvider {
         itemModelGenerator.generateFlatItem(BNOItems.RAW_ZINC, ModelTemplates.FLAT_ITEM);
     }
 
-    public static void createSimpleOreBlocks(BlockModelGenerators modelGenerators, Block block) {
+    public static void createNetherOreBlocks(BlockModelGenerators modelGenerators, Block block) {
         TextureMapping textureMapping = (new TextureMapping()).put(TextureSlot.ALL, TextureMapping.getBlockTexture(Blocks.NETHERRACK)).put(overlayTexture, TextureMapping.getBlockTexture(block));
 
         ResourceLocation resourceLocation = ORE_TEMPLATE.create(block, textureMapping, modelGenerators.modelOutput);
@@ -108,6 +141,31 @@ public class BlockStateGenerator extends FabricModelProvider {
         modelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, resourceLocation));
         modelGenerators.delegateItemModel(block, resourceLocation);
     }
+
+    public static void createBasaltOreBlocks(BlockModelGenerators modelGenerators, Block block, Block textureBlock) {
+        TextureMapping textureMapping = (new TextureMapping())
+                .put(TextureSlot.END, TextureMapping.getBlockTexture(Blocks.BASALT, "_top"))
+                .put(TextureSlot.SIDE, TextureMapping.getBlockTexture(Blocks.BASALT, "_side"))
+                .put(overlayTexture, TextureMapping.getBlockTexture(textureBlock));
+
+        ResourceLocation resourceLocation = COLUMN_TEMPLATE.create(block, textureMapping, modelGenerators.modelOutput);
+
+        modelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, resourceLocation));
+        modelGenerators.delegateItemModel(block, resourceLocation);
+    }
+
+    public static void createSoulOreBlocks(BlockModelGenerators modelGenerators, Block block, Block textureBlock) {
+        TextureMapping textureMapping = (new TextureMapping())
+                .put(TextureSlot.ALL, TextureMapping.getBlockTexture(Blocks.SOUL_SOIL))
+                .put(overlayTexture, TextureMapping.getBlockTexture(textureBlock));
+
+        ResourceLocation resourceLocation = ORE_TEMPLATE.create(block, textureMapping, modelGenerators.modelOutput);
+
+        modelGenerators.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block, resourceLocation));
+        modelGenerators.delegateItemModel(block, resourceLocation);
+    }
+
+
 
     private static ModelTemplate createModdedModel(String parent, TextureSlot... requiredTextures) {
         return new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, "block/" + parent)), Optional.empty(), requiredTextures);

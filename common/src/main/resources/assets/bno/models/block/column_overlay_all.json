@@ -1,0 +1,18 @@
+{
+	"parent": "bno:block/cube_overlay",
+	"textures": {
+		"particle": "#side",
+		"down": "#end",
+		"up": "#end",
+		"north": "#side",
+		"east": "#side",
+		"south": "#side",
+		"west": "#side",
+		"down_overlay": "#overlay",
+		"up_overlay": "#overlay",
+		"north_overlay": "#overlay",
+		"east_overlay": "#overlay",
+		"south_overlay": "#overlay",
+		"west_overlay": "#overlay"
+	}
+}
